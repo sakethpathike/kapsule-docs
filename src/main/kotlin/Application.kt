@@ -1,8 +1,15 @@
 package io.github.sakethpathike
 
+import io.github.sakethpathike.docs.GettingStarted
+import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
+import io.ktor.server.response.*
+import io.ktor.server.routing.*
+import kotlinx.html.HTML
+import kotlinx.html.html
+import kotlinx.html.stream.createHTML
 
 fun main() {
     embeddedServer(Netty, port = 8080, host = "0.0.0.0", module = Application::module)
@@ -10,5 +17,21 @@ fun main() {
 }
 
 fun Application.module() {
-    configureRouting()
+    val allRoutes = listOf(Route(route = "/", content = { htmlScope, route ->
+        with(htmlScope) {
+            GettingStarted(route)
+        }
+    }))
+
+    routing {
+        allRoutes.forEach { currentRoute ->
+            get(currentRoute.route) {
+                call.respondText(contentType = ContentType.Text.Html, text = createHTML().html {
+                    currentRoute.content(this, currentRoute.route)
+                }.toString())
+            }
+        }
+    }
 }
+
+data class Route(val route: String, val content: (HTML, route: String) -> Unit)

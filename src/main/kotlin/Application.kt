@@ -1,7 +1,10 @@
 package io.github.sakethpathike
 
 import io.github.sakethpathike.docs.GettingStarted
+import io.github.sakethpathike.docs.components.Column
+import io.github.sakethpathike.docs.components.Row
 import io.github.sakethpathike.docs.components.Surface
+import io.github.sakethpathike.docs.components.Text
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
@@ -26,7 +29,19 @@ fun Application.module() {
         with(htmlScope) {
             Surface(currentRoute = route)
         }
-    }))
+    }), Route(route = "/components/Text", content = { htmlScope, route ->
+        with(htmlScope) {
+            Text(currentRoute = route)
+        }
+    }), Route(route = "/components/Column", content = { htmlScope, route ->
+        with(htmlScope) {
+            Column(currentRoute = route)
+        }
+    }),Route(route = "/components/Row", content = { htmlScope, route ->
+        with(htmlScope) {
+            Row(currentRoute = route)
+        }
+    }),)
 
     routing {
         allRoutes.forEach { currentRoute ->

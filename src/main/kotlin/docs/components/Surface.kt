@@ -1,34 +1,15 @@
 package io.github.sakethpathike.docs.components
 
-import docs.common.ui.CommonScaffold
-import io.github.sakethpathike.docs.common.ui.BottomPagerControls
 import io.github.sakethpathike.docs.common.ui.Codeblock
-import io.github.sakethpathike.docs.common.ui.CustomCodeBlock
+import io.github.sakethpathike.docs.common.ui.TopicUI
 import kotlinx.html.HTML
-import sakethh.kapsule.Column
-import sakethh.kapsule.Modifier
-import sakethh.kapsule.Text
-import sakethh.kapsule.utils.px
 
 fun HTML.Surface(currentRoute: String) {
-    CommonScaffold(currentRoute = currentRoute) {
-        Column(
-            modifier = Modifier().fillMaxSize().padding(25.px).custom(
-                """
-                  flex: 1;
-                  overflow-y: auto;
-            """.trimIndent()
-            )
-        ) {
-            Text(text = "Surface", color = "#ffffff", fontWeight = "bold", fontFamily = "Poppins", fontSize = 25.px)
-            Text(
-                text = """
-                The Surface function is the primary entry point for building web pages using Kapsule. You can think of it as the starting point, like the main entry function in a typical application. It sets up the basic structure of your HTML page, including the head and body sections, and allows you to define the content within.
-            """.trimIndent(), color = "#ffffff", fontSize = 18.px, fontFamily = "Poppins"
-            )
-            Text(text = "\nFunction Signature:", color = "#ffffff", fontSize = 18.px, fontFamily = "Poppins")
-            CustomCodeBlock(
-                code = """
+    TopicUI(
+        currentRoute = currentRoute,
+        topicName = "Surface",
+        topicDesc = "The Surface function is the primary entry point for building web pages using Kapsule. You can think of it as the starting point, like the main entry function in a typical application. It sets up the basic structure of your HTML page, including the head and body sections, and allows you to define the content within.",
+        topicSignature = """
             fun HTML.Surface(
                 modifier: Modifier = Modifier(),
                 fonts: List<String> = emptyList(),
@@ -39,13 +20,8 @@ fun HTML.Surface(currentRoute: String) {
                 onTheBodyElement: BODY.() -> Unit = {},
                 content: BODY.() -> Unit = {}
             )
-        """.trimIndent()
-            )
-            Text(
-                text = """
-                <b>Parameters</b>:
-
-     ${Codeblock("modifier")}: This parameter takes a Modifier object.  A Modifier is used to apply styling and layout properties to the <code>body</code> of your HTML page.  If you don't provide a Modifier, it defaults to an empty Modifier, meaning no extra styles will be applied directly.
+        """.trimIndent(),
+        paramsExplanation = """${Codeblock("modifier")}: This parameter takes a Modifier object.  A Modifier is used to apply styling and layout properties to the <code>body</code> of your HTML page.  If you don't provide a Modifier, it defaults to an empty Modifier, meaning no extra styles will be applied directly.
 
    ${Codeblock("fonts")}: This is a list of strings (List<String>).  It allows you to specify URLs for any fonts you want to include in your webpage.  These are typically links to font files hosted on services like Google Fonts.  The Surface function will automatically add these font URLs as <link> tags within the <head> section of your HTML. Only URLs starting with "http" will be added.
 
@@ -60,18 +36,8 @@ fun HTML.Surface(currentRoute: String) {
     ${Codeblock("onTheBodyElement")}: This is a lambda function that lets you add attributes directly to the <code>body</code> section of your HTML page.
 
     ${Codeblock("content")}:  This is the most important lambda function.  It's where you define the actual content of your webpage.  The code you write here will be placed inside the <code>body</code> section of your HTML. The code inside this block operates within the context of the BODY element.
-            """.trimIndent(), color = "#ffffff", fontSize = 18.px, fontFamily = "Poppins"
-            )
-
-            Text(
-                text = "\nHere's how you might use the ${Codeblock("Surface")} function",
-                color = "#ffffff",
-                fontSize = 18.px,
-                fontFamily = "Poppins",
-                fontWeight = "bold"
-            )
-            CustomCodeBlock(
-                code = """
+            """.trimIndent(),
+        exampleCodeForCurrentTopic = """
                 <pre>Surface(
     fonts =
         listOf(
@@ -107,19 +73,19 @@ fun HTML.Surface(currentRoute: String) {
             // <i>code</i>
         }
     }
-}</pre>""".trimIndent()
-            )
-            BottomPagerControls(
-                showPreviousBtn = true, showNextBtn = true, onPreviousBtnClick = {
-                """
+}</pre>""".trimIndent(),
+        showPreviousBtn = true,
+        showNextBtn = true,
+        onPreviousBtnClick = {
+            """
                         window.open("/", "_self");
                     """.trimIndent()
-            }, onNextBtnClick = {
-                """
+        },
+        onNextBtnClick = {
+            """
                         window.open("/components/Text", "_self");
                     """.trimIndent()
-            }, previousBtnTxt = "Getting Started", nextBtnTxt = "Text"
-            )
-        }
-    }
+        },
+        previousBtnTxt = "Getting Started", nextBtnTxt = "Text"
+    )
 }

@@ -21,7 +21,7 @@ fun HTML.GettingStarted(currentRoute: String) {
                 text = """
             Jetpack Compose's declarative approach with Kotlin DSL is one of my best experiences writing Compose/Kotlin code.
 
-            Well, that wasn’t quite the case when handling HTML sent from the server for simple static sites like the one you’re currently on. kotlinx.html solves this, but since I'm more familiar with Compose, I thought there should be a library that just does this. There are solutions like Kobweb and Kweb, but they're quite heavy/full-stack-based, rather than just HTML generation.
+            Well, that wasn’t quite the case when handling HTML sent from the server for simple static sites like the one you’re currently on. <code>kotlinx.html</code> solves this, but since I'm more familiar with Compose, I thought there should be a library that just does this. There are solutions like Kobweb and Kweb, but they're quite heavy/full-stack-based, rather than just HTML generation.
 
             ANDDDD... I have a plan.
         """.trimIndent(), color = "#ffffff", fontSize = 18.px, fontFamily = "Poppins"
@@ -49,7 +49,7 @@ fun HTML.GettingStarted(currentRoute: String) {
             }
 
             Text(
-                text = " kapsule is a Kotlin Multiplatform library, wrapping kotlinx.html with Jetpack Compose-style modifiers and layout semantics to simplify static HTML generation.",
+                text = " kapsule is a Kotlin Multiplatform library, wrapping <code>kotlinx.html</code> with Jetpack Compose-style modifiers and layout semantics to simplify static HTML generation.",
                 color = "#ffffff",
                 fontSize = 18.px,
                 fontFamily = "Poppins"

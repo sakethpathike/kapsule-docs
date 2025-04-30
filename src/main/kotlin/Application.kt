@@ -1,6 +1,7 @@
 package io.github.sakethpathike
 
 import io.github.sakethpathike.docs.GettingStarted
+import io.github.sakethpathike.docs.components.Surface
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
@@ -20,6 +21,10 @@ fun Application.module() {
     val allRoutes = listOf(Route(route = "/", content = { htmlScope, route ->
         with(htmlScope) {
             GettingStarted(route)
+        }
+    }), Route(route = "/components/Surface", content = { htmlScope, route ->
+        with(htmlScope) {
+            Surface(currentRoute = route)
         }
     }))
 

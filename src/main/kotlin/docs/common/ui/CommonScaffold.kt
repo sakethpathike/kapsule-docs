@@ -145,7 +145,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                     id = "components"
                 ) {
                     components.forEach { component ->
-                        ("components/$component" == currentRoute).let {
+                        ("/components/$component" == currentRoute).let {
                             SidebarSelectedTextComponent(selected = it, text = component, onThisElement = {
                                 onClick = """
                         window.open("/components/${component}", "_self");

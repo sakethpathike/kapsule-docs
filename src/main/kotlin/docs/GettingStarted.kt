@@ -1,6 +1,7 @@
 package io.github.sakethpathike.docs
 
 import docs.common.ui.CommonScaffold
+import io.github.sakethpathike.docs.common.ui.BottomPagerControls
 import kotlinx.html.HTML
 import sakethh.kapsule.*
 import sakethh.kapsule.utils.*
@@ -33,22 +34,32 @@ fun HTML.GettingStarted(currentRoute: String) {
                 )
             }
             Text(
-                text = "Guess what? Mine actually works — unlike Vander Linde’s. This site’s built with Kapsule \uD83E\uDD20",
+                text = "Guess what? Mine actually works — unlike Vander Linde’s. This site’s built with kapsule \uD83E\uDD20",
                 color = "#ffffff",
                 fontSize = 18.px,
                 fontFamily = "Poppins"
             )
-            Box(
-                modifier = Modifier().margin(top = 10.px, bottom = 10.px).height(2.5.px).opacity(0.25).fillMaxWidth()
-                    .backgroundColor("#ffffff"), init = {})
+
+            Box(Modifier().fillMaxWidth().padding(top = 10.px, bottom = 10.px)) {
+                Spacer(
+                    modifier = Modifier().height(2.5.px).opacity(0.25).fillMaxWidth().backgroundColor("#ffffff")
+                        .clip(Shape.RoundedRectangle(cornerRadius = 5.px))
+                )
+            }
 
             Text(
-                text = "When to use Kapsule?",
+                text = " kapsule is a Kotlin Multiplatform library, wrapping kotlinx.html with Jetpack Compose-style modifiers and layout semantics to simplify static HTML generation.",
+                color = "#ffffff",
+                fontSize = 18.px,
+                fontFamily = "Poppins"
+            )
+            Text(
+                text = "When to use kapsule?",
                 color = "#ffffff",
                 fontSize = 24.px,
                 fontFamily = "Poppins",
-                fontWeight = 45.px,
-                modifier = Modifier().margin(bottom = 10.px)
+                fontWeight = "bold",
+                modifier = Modifier().margin(top = 10.px, bottom = 10.px)
             )
             listOf(
                 "Server-side rendering static HTML",
@@ -67,33 +78,45 @@ fun HTML.GettingStarted(currentRoute: String) {
                 text = "Not a fullstack framework",
                 color = "#ffffff",
                 fontSize = 24.px,
-                fontFamily = "Poppins",
-                fontWeight = 45.px,
+                fontFamily = "Poppins", fontWeight = "bold",
                 modifier = Modifier().margin(top = 15.px, bottom = 10.px)
             )
             Text(
-                text = "Kapsule's motto isn't to be \"yet another fullstack solution\" or overengineer beyond its core goal — it strictly focuses on HTML/CSS generation with a Compose-like feel. If you need more than this, you're probably looking for Kobweb/Kweb instead.",
+                text = "kapsule's motto isn't to be \"yet another fullstack solution\" or overengineer beyond its core goal — it strictly focuses on HTML/CSS generation with a Compose-like feel. If you need more than this, you're probably looking for Kobweb/Kweb instead.",
                 color = "#ffffff",
                 fontSize = 18.px,
                 fontFamily = "Poppins"
             )
             Text(
-                text = "Adding dependency",
+                text = "Compose-style not Compose-behavior",
                 color = "#ffffff",
                 fontSize = 24.px,
                 fontFamily = "Poppins",
-                fontWeight = 45.px,
+                fontWeight = "bold",
                 modifier = Modifier().margin(top = 15.px, bottom = 10.px)
             )
             Text(
-                text = """Kapsule is available on Maven Central.
+                text = "kapsule only uses Compose-style not Compose-behavior. The behaviour still depends on HTML/CSS (and JS if you add raw scripts). You should look up MDN docs or Stack Overflow when something doesn't behave like Jetpack Compose - that's the web dev experience.",
+                color = "#ffffff",
+                fontSize = 18.px,
+                fontFamily = "Poppins",
+            )
+            Text(
+                text = "Adding dependency",
+                color = "#ffffff",
+                fontSize = 24.px,
+                fontFamily = "Poppins", fontWeight = "bold",
+                modifier = Modifier().margin(top = 15.px, bottom = 10.px)
+            )
+            Text(
+                text = """kapsule is available on Maven Central.
 Add the following to your build.gradle.kts dependencies block:""",
                 color = "#ffffff",
                 fontSize = 18.px,
                 fontFamily = "Poppins"
             )
 
-            val latestKapsuleVersion = "0.0.4"/*HttpClient.newHttpClient().send(
+            val latestkapsuleVersion = "0.0.4"/*HttpClient.newHttpClient().send(
                 HttpRequest.newBuilder().GET()
                     .uri(URI.create("https://repo1.maven.org/maven2/io/github/sakethpathike/kapsule/maven-metadata.xml"))
                     .build(), HttpResponse.BodyHandlers.ofString()
@@ -104,12 +127,12 @@ Add the following to your build.gradle.kts dependencies block:""",
             Row(
                 verticalAlignment = VerticalAlignment.SpaceBetween,
                 horizontalAlignment = HorizontalAlignment.Center,
-                modifier = Modifier().margin(top = 10.px, bottom = 150.px).padding(10.px).backgroundColor("#1b1b1b")
+                modifier = Modifier().margin(top = 10.px, bottom = 30.px).padding(10.px).backgroundColor("#1b1b1b")
                     .border(5, color = "#ffffff")
             ) {
                 Text(
                     modifier = Modifier(), text = """
-                    implementation("io.github.sakethpathike:kapsule:${latestKapsuleVersion.trim()}")
+                    implementation("io.github.sakethpathike:kapsule:${latestkapsuleVersion.trim()}")
                     """.trimIndent(), color = "#ffffff", fontSize = 18.px, fontFamily = "Poppins"
                 )
                 Text(
@@ -120,6 +143,18 @@ Add the following to your build.gradle.kts dependencies block:""",
                     fontFamily = "Poppins"
                 )
             }
+            BottomPagerControls(
+                showPreviousBtn = false,
+                showNextBtn = true,
+                onPreviousBtnClick = { "" },
+                onNextBtnClick = {
+                    """
+                        window.open("/components/Surface", "_self");
+                    """.trimIndent()
+                },
+                previousBtnTxt = "",
+                nextBtnTxt = "Surface"
+            )
         }
     }
 }

@@ -18,27 +18,27 @@ fun DIV.BottomPagerControls(
         modifier = Modifier().fillMaxWidth().margin(bottom = 150.px)
     ) {
         if (showPreviousBtn) {
-            BottomButton(text = previousBtnTxt, onClick = onPreviousBtnClick)
+            BottomButton(text = previousBtnTxt, label = "Previous page", onClick = onPreviousBtnClick)
         } else {
             Spacer(modifier = Modifier().display(Display.InlineBlock))
         }
 
         if (showNextBtn) {
-            BottomButton(text = nextBtnTxt, onClick = onNextBtnClick)
+            BottomButton(text = nextBtnTxt, onClick = onNextBtnClick, label = "Next page")
         } else {
             Spacer(modifier = Modifier().display(Display.InlineBlock))
         }
     }
 }
 
-private fun DIV.BottomButton(text: String, onClick: () -> String) {
+private fun DIV.BottomButton(label: String, text: String, onClick: () -> String) {
     Button(
         modifier = Modifier().cursor(Cursor.Pointer).clip(shape = Shape.RoundedRectangle(12.px))
             .backgroundColor("#d6d6d6").display(Display.InlineBlock), onClick = onClick
     ) {
         Column(modifier = Modifier().padding(5.px)) {
             Text(
-                text = "Next page", fontFamily = "Poppins", color = "black", fontSize = 10.px, fontWeight = "0"
+                text = label, fontFamily = "Poppins", color = "black", fontSize = 10.px, fontWeight = "0"
             )
 
             Text(

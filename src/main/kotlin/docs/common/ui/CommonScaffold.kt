@@ -46,14 +46,35 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                 verticalAlignment = VerticalAlignment.SpaceBetween,
                 horizontalAlignment = HorizontalAlignment.Center
             ) {
-                Text(
-                    modifier = Modifier().margin(start = 15.px).then(userSelectMod),
-                    text = "kapsule",
-                    fontFamily = "Abril Fatface",
-                    color = "white",
-                    fontSize = 25.px,
-                    fontWeight = 45.px
-                )
+                Row(horizontalAlignment = HorizontalAlignment.Center) {
+                    Text(
+                        modifier = Modifier().margin(start = 15.px).cursor(Cursor.Pointer),
+                        id = "kapsuleExpandEmoji", text = "◀\uFE0F",
+                        onThisElement = {
+                            onClick = """
+                            const components = document.getElementById("topics-panel");
+                                const kapsuleExpandEmoji = document.getElementById("kapsuleExpandEmoji");
+                                if (components.style.display === "none") {
+                                    kapsuleExpandEmoji.textContent = "◀️";
+                                    components.style.display = "block";
+                                } else {
+                                    kapsuleExpandEmoji.textContent = "▶️";
+                                    components.style.display = "none";
+                                }
+                            
+                        """.trimIndent()
+                        },
+                        fontSize = 20.px,
+                    )
+                    Text(
+                        modifier = Modifier().margin(start = 15.px).then(userSelectMod),
+                        text = "kapsule",
+                        fontFamily = "Abril Fatface",
+                        color = "white",
+                        fontSize = 25.px,
+                        fontWeight = 45.px
+                    )
+                }
                 Button(
                     modifier = Modifier().cursor(Cursor.Pointer).margin(end = 15.px).height(35.px)
                         .clip(shape = Shape.RoundedRectangle(12.px)).backgroundColor("#d6d6d6"), onClick = {
@@ -74,7 +95,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
         }
         Row(modifier = Modifier().fillMaxSize()) {
             Column(
-                Modifier().fillMaxHeight().custom(
+                id = "topics-panel", modifier = Modifier().fillMaxHeight().custom(
                     """
                           overflow-y: auto;
                     """.trimIndent()
@@ -95,20 +116,20 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                     onThisElement = {
                         onClick = """
                                 const components = document.getElementById("components");
-                                const expandEmoji = document.getElementById("expandEmoji");
+                                const componentsExpandEmoji = document.getElementById("componentsExpandEmoji");
                                 if (components.style.display === "none") {
-                                    expandEmoji.textContent = "⬇️";
+                                    componentsExpandEmoji.textContent = "⬇️";
                                     components.style.display = "block";
                                 } else {
-                                    expandEmoji.textContent = "➡️";
+                                    componentsExpandEmoji.textContent = "➡️";
                                     components.style.display = "none";
                                 }
                             """.trimIndent()
                     }) {
                     Text(
-                        text = "➡\uFE0F",
+                        text = "⬇\uFE0F",
                         fontSize = 20.px,
-                        id = "expandEmoji",
+                        id = "componentsExpandEmoji",
                     )
                     Spacer(modifier = Modifier().width(10.px))
                     Text(

@@ -3,6 +3,7 @@ package io.github.sakethpathike.docs
 import docs.common.ui.CommonScaffold
 import io.github.sakethpathike.docs.common.ui.BottomPagerControls
 import kotlinx.html.HTML
+import kotlinx.html.onClick
 import sakethh.kapsule.*
 import sakethh.kapsule.utils.*
 
@@ -130,17 +131,44 @@ Add the following to your build.gradle.kts dependencies block:""",
                 modifier = Modifier().margin(top = 10.px, bottom = 30.px).padding(10.px).backgroundColor("#1b1b1b")
                     .border(5, color = "#ffffff")
             ) {
+                val kapsuleDependency = "io.github.sakethpathike:kapsule:${latestkapsuleVersion.trim()}"
                 Text(
+                    id = "dependency",
                     modifier = Modifier(), text = """
-                    implementation("io.github.sakethpathike:kapsule:${latestkapsuleVersion.trim()}")
+                    implementation("$kapsuleDependency")
                     """.trimIndent(), color = "#ffffff", fontSize = 18.px, fontFamily = "Poppins"
                 )
                 Text(
                     modifier = Modifier().cursor(Cursor.Pointer),
                     text = "\uD83D\uDCCB",
                     color = "#ffffff",
-                    fontSize = 18.px,
-                    fontFamily = "Poppins"
+                    fontSize = 18.px, fontFamily = "Poppins", onThisElement = {
+                        onClick = """
+  const div = document.getElementById('dependency');
+  const textToCopy = div.textContent;
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(textToCopy)
+      .then(() => console.log('Copied to clipboard!'))
+      .catch(err => alert('Copy failed: ' + err));
+  } else {
+    const textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+    textarea.style.position = 'absolute';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand('copy');
+      console.log('Copied via execCommand');
+    } catch (err) {
+      alert('Fallback copy failed: ' + err);
+    }
+    document.body.removeChild(textarea);
+  }
+
+                        """.trimIndent()
+                    }
                 )
             }
             BottomPagerControls(

@@ -1,6 +1,8 @@
 # kapsule-docs
 
-This documentation site is for demo purposes of [kapsule](https://github.com/sakethpathike/kapsule), built entirely using it to generate HTML.
+This documentation site demonstrates [kapsule](https://github.com/sakethpathike/kapsule),
+built entirely using it to generate HTML, with server-side rendering powered by a Ktor backend.
+
 You might come across
 some style issues on mobile or desktop, or find that certain topics like modifiers haven’t been covered yet.
 If you’re here, you’re probably already familiar with how

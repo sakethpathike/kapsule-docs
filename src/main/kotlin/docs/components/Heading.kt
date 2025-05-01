@@ -6,9 +6,7 @@ import kotlinx.html.HTML
 
 fun HTML.Heading(currentRoute: String) {
     TopicUI(
-        currentRoute = currentRoute, topicName = "Heading", topicDesc = """
-            Renders a generic HTML heading (`<h1>` to `<h6>`) based on the provided level.  
-        """.trimIndent(), topicSignature = """
+        currentRoute = currentRoute, topicName = "Heading", topicDesc = """Creates heading tags from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> based on specified level.""".trimIndent(), topicSignature = """
             fun FlowContent.Heading(
                 level: Int,
                 text: String,
@@ -16,17 +14,12 @@ fun HTML.Heading(currentRoute: String) {
                 id: String? = null,
                 onThisElement: FlowOrHeadingContent.() -> Unit = {}
             )
-        """.trimIndent(), paramsExplanation = """
-            ${Codeblock("level")}: Heading level (1 to 6). Maps to <h1> through <h6>.
-
-            ${Codeblock("text")}: The visible heading content.
-
-            ${Codeblock("className")}: Optional CSS class for the heading.
-
-            ${Codeblock("id")}: Optional ID attribute for the heading.
-
-            ${Codeblock("onThisElement")}: Hook to apply extra attributes or nested elements inside the heading tag.
-        """.trimIndent(), exampleCodeForCurrentTopic = "", onPreviousBtnClick = {
+        """.trimIndent(), paramsExplanation = """<ul><li>${Codeblock("level")}: Creates <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> based on value (1-6)</li>  
+  <li>${Codeblock("text")}: Visible heading content</li>  
+  <li>${Codeblock("className")}: Optional CSS class for the heading</li>  
+  <li>${Codeblock("id")}: Unique identifier for the heading</li>  
+  <li>${Codeblock("onThisElement")}: Adds attributes/elements to the heading tag</li>  
+</ul>  """.trimIndent(), exampleCodeForCurrentTopic = "", onPreviousBtnClick = {
         """
                         window.open("/components/BreakFlow", "_self");
                     """.trimIndent()

@@ -7,8 +7,9 @@ import kotlinx.html.HTML
 fun HTML.Column(currentRoute: String) {
     TopicUI(
         currentRoute = currentRoute,
-        topicName = "Column",
-        topicDesc = "The `Column` function is a layout component that arranges its child elements vertically, similar to the `Column` in Jetpack Compose. It provides alignment options and styling capabilities using the `Modifier` pattern, making it ideal for building structured vertical layouts.",
+        topicName = "Column", topicDesc = """
+            The <code>Column</code> arranges items vertically in a layout.
+        """.trimIndent(),
         topicSignature = """fun FlowContent.Column(
                         modifier: Modifier = Modifier(),
                         verticalAlignment: VerticalAlignment = VerticalAlignment.None,
@@ -16,19 +17,14 @@ fun HTML.Column(currentRoute: String) {
                         onThisElement: DIV.() -> Unit = {},
                         content: DIV.() -> Unit
                     )""".trimIndent(),
-        paramsExplanation = """${Codeblock("modifier")}: Applies inline CSS styles to the <code>div</code> element using the Modifier instance. This includes properties like padding, margin, background color, etc.
-
-                    ${Codeblock("verticalAlignment")}: Specifies the vertical alignment of child elements within the column.
-
-                    ${Codeblock("horizontalAlignment")}: Determines the horizontal alignment of child elements
-                    
-                    ${Codeblock("className")}: Optional CSS class to be applied to the <code>div</code> element.
-
-                    ${Codeblock("id")}: Optional id attribute for the <code>div</code> element.
-
-                    ${Codeblock("onThisElement")}: A lambda function that allows additional configurations or attributes to be applied directly to the <code>div</code> element.
-
-                    ${Codeblock("content")}: A lambda function that defines the child elements to be placed inside the column.
+        paramsExplanation = """<ul> <li>${Codeblock("modifier")}: Applies CSS styles (<code>padding</code>, <code>margin</code>, etc.) to the container</li>
+  <li>${Codeblock("verticalAlignment")}: Sets <em>vertical positioning</em> of children</li>
+  <li>${Codeblock("horizontalAlignment")}: Controls <em>horizontal arrangement</em> of children</li>
+  <li>${Codeblock("className")}: Adds CSS class to the container <code>div</code></li>
+  <li>${Codeblock("id")}: Sets DOM identifier for the <code>div</code></li>
+  <li>${Codeblock("onThisElement")}: Directly configures the container <code>div</code></li>
+  <li>${Codeblock("content")}: Defines child components in the column</li>
+</ul>
                 """.trimIndent(),
         exampleCodeForCurrentTopic = "",
         showPreviousBtn = true,

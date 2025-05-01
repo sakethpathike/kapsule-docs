@@ -8,7 +8,7 @@ fun HTML.Row(currentRoute: String) {
     TopicUI(
         currentRoute = currentRoute,
         topicName = "Row",
-        topicDesc = "`Row` is a horizontal layout container in Kapsule. It wraps a `<code>div</code>` and places child elements side by side. You can set spacing, alignment, CSS classes, IDs, and inline styles with the same `Modifier` system you know from Compose.",
+        topicDesc = "<code>Row</code> arranges items <em>horizontally</em>.",
         topicSignature = """fun FlowContent.Row(
                 modifier: Modifier = Modifier(),
                 verticalAlignment: VerticalAlignment = VerticalAlignment.None,
@@ -16,20 +16,15 @@ fun HTML.Row(currentRoute: String) {
                 onThisElement: DIV.() -> Unit = {},
                 content: DIV.() -> Unit
             )""".trimIndent(),
-        paramsExplanation = """
-${Codeblock("modifier")}: Build inline CSS for the <code>div</code> (padding, margin, background, flex, etc.).
-
-${Codeblock("verticalAlignment")}: How children line up vertically inside the row (Top, Center, Bottom, or None).
-
-${Codeblock("horizontalAlignment")}:How children space out horizontally (Start, Center, End, SpaceBetween, SpaceAround, SpaceEvenly, or None).
-
-${Codeblock("className")}: Optional CSS class string for the <code>div</code>.
-
-${Codeblock("id")}: Optional ID attribute for the <code>div</code>.
-
-${Codeblock("onThisElement")}: A small DSL block to add extra attributes or listeners on the <code>div</code>.
-
-${Codeblock("content")}: The block where you place child elements.""",
+        paramsExplanation = """<ul><li>${Codeblock("modifier")}: CSS styles for the <code>div</code> (padding, margin, flex)</li>  
+              <li>${Codeblock("verticalAlignment")}: Child alignment <em>vertically</em> (Top/Center/Bottom)</li>  
+              <li>${Codeblock("horizontalAlignment")}: Child spacing <em>horizontally</em> (Start/SpaceBetween/etc)</li>  
+              <li>${Codeblock("className")}: Optional CSS class for the <code>div</code></li>  
+              <li>${Codeblock("id")}: Unique identifier for the <code>div</code></li>  
+              <li>${Codeblock("onThisElement")}: Add attributes/listeners to the <code>div</code></li>  
+              <li>${Codeblock("content")}: Child elements inside the <code>div</code></li>  
+            </ul>
+        """.trimIndent(),
         exampleCodeForCurrentTopic = "",
         onPreviousBtnClick = {
             """

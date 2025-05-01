@@ -8,7 +8,7 @@ fun HTML.Text(currentRoute: String) {
     TopicUI(
         currentRoute = currentRoute,
         topicName = "Text",
-        topicDesc = "well...it's a text \uD83E\uDD13",
+        topicDesc = "Well... it's a text <code>\uD83E\uDD13</code>\n",
         topicSignature = """fun FlowContent.Text(
     text: String,
     fontSize: String = 12.px, fontFamily: String? = null, color: String? = null, fontWeight: String? = null,
@@ -19,28 +19,18 @@ fun HTML.Text(currentRoute: String) {
     onThisElement: DIV.() -> Unit = {},
     modifier: Modifier = Modifier()
 )""".trimIndent(),
-        paramsExplanation = """${Codeblock("text")}:  The actual text string (String) that you want to display.  This is the content that will be rendered on the page.
-
-            ${Codeblock("fontSize")}:  The size of the text.  It defaults to "12.px".  You can use any valid CSS size unit (e.g., "16px", "1em", "0.8rem").
-
-            ${Codeblock("fontFamily")}:  The font family to use for the text (e.g., "Arial", "Verdana", "Inter").  If not provided, the browser's default font will be used.
-
-            ${Codeblock("color")}:  The color of the text.  You can specify this using a named color (e.g., "red", "blue"), a hexadecimal value (e.g., "#ff0000"), or an RGB/RGBA value.
-
-            ${Codeblock("fontWeight")}: The weight of the text (e.g., "normal", "bold", "bolder", "lighter", or numeric values like "400", "700").
-
-            ${Codeblock("display")}:  The display property of the text.  It defaults to Display.Inline.  Other possible values include Display.Block, Display.InlineBlock, etc., which affect how the text is rendered within the surrounding HTML.
-
-            ${Codeblock("className")}:  A string (String?) that allows you to set the class attribute of the <div> element that wraps the text.  This is useful for applying CSS styles defined elsewhere.
-
-            ${Codeblock("id")}:  A string (String?) that allows you to set the id attribute of the <div> element that wraps the text.  This provides a unique identifier for the text element.
-
-            ${Codeblock("textAlign")}: The horizontal alignment of the text. It defaults to TextAlign.Start. Other possible values are TextAlign.Center, TextAlign.End, TextAlign.Left, and TextAlign.Right.
-
-            ${Codeblock("onThisElement")}: A lambda function that lets you add further configurations to the <div> element.
-
-            ${Codeblock("modifier")}:  A Modifier object that allows you to apply Kapsule styling to the <div> element that wraps the text.
-        """.trimIndent(),
+        paramsExplanation = """<ul"><li>${Codeblock("text")}: Content string rendered inside a <code>&lt;div&gt;</code></li>  
+  <li>${Codeblock("fontSize")}: Text size (default: "12px"). Accepts CSS units like "em" or "rem"</li>  
+  <li>${Codeblock("fontFamily")}: Typeface name (e.g., "Arial") or browser default</li>  
+  <li>${Codeblock("color")}: Text color using names, hex codes, or RGB values</li>  
+  <li>${Codeblock("fontWeight")}: Thickness from <code>normal</code> to <code>bold</code> (or numeric values)</li>  
+  <li>${Codeblock("display")}: Layout behavior (<code>Display.Inline</code>, <code>Display.Block</code>)</li>  
+  <li>${Codeblock("className")}: Optional CSS class for the wrapper <code>&lt;div&gt;</code></li>  
+  <li>${Codeblock("id")}: Unique identifier for the wrapper <code>&lt;div&gt;</code></li>  
+  <li>${Codeblock("textAlign")}: Horizontal alignment (<code>TextAlign.Start</code>, <code>TextAlign.Center</code>)</li>  
+  <li>${Codeblock("onThisElement")}: Directly configures the wrapper <code>&lt;div&gt;</code></li>  
+  <li>${Codeblock("modifier")}: Applies Kapsule styles to the wrapper <code>&lt;div&gt;</code></li>  
+</ul>  """.trimIndent(),
         exampleCodeForCurrentTopic = "",
         showPreviousBtn = true,
         showNextBtn = true,

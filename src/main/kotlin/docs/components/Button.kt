@@ -8,7 +8,7 @@ fun HTML.Button(currentRoute: String) {
     TopicUI(
         currentRoute = currentRoute,
         topicName = "Button",
-        topicDesc = "`Button` is a clickable element in Kapsule, built on top of the <code>kotlinx.html</code> DSL. It renders a <code>button</code> with your supplied styles, attributes, and click handler, letting you treat HTML buttons like Compose components.",
+        topicDesc = "Well... it's a button <code>\uD83E\uDD13</code>\n",
         topicSignature = """
             fun FlowContent.Button(
                 modifier: Modifier,
@@ -19,19 +19,13 @@ fun HTML.Button(currentRoute: String) {
                 content: BUTTON.() -> Unit
             )
         """.trimIndent(),
-        paramsExplanation = """
-            ${Codeblock("modifier")}: A Compose-style Modifier that builds inline CSS for the <code>button</code> (padding, margin, background, size, etc.).
-
-            ${Codeblock("className")}: Optional CSS class string to apply to the <code>button</code> element.
-
-            ${Codeblock("onThisElement")}: A lambda on the raw BUTTON receiver. Use this to add extra attributes, event listeners, ARIA tags, or nested DSL calls before the content.
-
-            ${Codeblock("id")}: Optional id attribute for the <code>button</code> element.
-
-            ${Codeblock("onClick")}: A function returning the JavaScript snippet (as a String) to set as the button’s onclick attribute.
-
-            ${Codeblock("content")}: A lambda on the BUTTON receiver defining the inner content—text, icons, or other nested components.
-        """.trimIndent(),
+        paramsExplanation = """<ul><li>${Codeblock("modifier")}: Applies CSS styles to the <code>button</code> (padding, background, etc.)</li>  
+  <li>${Codeblock("className")}: Optional CSS class for the <code>button</code></li>  
+  <li>${Codeblock("onThisElement")}: Adds attributes/event listeners to the <code>button</code></li>  
+  <li>${Codeblock("id")}: Unique identifier for the <code>button</code></li>  
+  <li>${Codeblock("onClick")}: Defines JavaScript click handler as a string</li>  
+  <li>${Codeblock("content")}: Defines inner content (text/icons) within the <code>button</code></li>  
+</ul>""".trimIndent(),
         exampleCodeForCurrentTopic = "",
         onPreviousBtnClick = {
             """

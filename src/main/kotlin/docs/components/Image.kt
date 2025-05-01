@@ -7,8 +7,9 @@ import kotlinx.html.HTML
 fun HTML.Image(currentRoute: String) {
     TopicUI(
         currentRoute = currentRoute, topicName = "Image", topicDesc = """
-            Renders a styled `<img>` tag with support for alignment, scaling behavior, and layout via `Modifier`.  
-            Useful for static or responsive images with full control over how they fit and align.
+              <li>Renders a configurable <code>&lt;img&gt;</code> element for displaying images</li>  
+              <li>Controls alignment and scaling via <code>Modifier</code> properties</li>  
+              <li>Supports both fixed layouts and responsive image behavior</li>  
         """.trimIndent(), topicSignature = """fun FlowContent.Image(
     modifier: Modifier = Modifier(),
     alt: String? = null,
@@ -19,25 +20,16 @@ fun HTML.Image(currentRoute: String) {
     contentScale: ContentScale = ContentScale.Cover,
     alignment: ObjectPosition = ObjectPosition.Predefined.Center,
     onThisElement: IMG.() -> Unit = {}
-)""".trimIndent(), paramsExplanation = """
-            ${Codeblock("modifier")}: Layout and visual styling (padding, margin, border, etc).
-
-            ${Codeblock("alt")}: Alternate text for accessibility and fallback.
-
-            ${Codeblock("src")}: Image URL or file path.
-
-            ${Codeblock("id")}: Optional HTML ID for targeting.
-
-            ${Codeblock("imgLoading")}: Sets native image loading attribute (lazy, eager, or null).
-
-            ${Codeblock("className")}: Optional CSS class.
-
-            ${Codeblock("contentScale")}: Defines how the image fits its box (Cover, Contain, etc).
-
-            ${Codeblock("alignment")}: Controls image alignment inside the box (e.g., Top, Center, Bottom).
-
-            ${Codeblock("onThisElement")}: Optional hook to modify the <img> tag (e.g., add referrerpolicy, decoding, etc).
-        """.trimIndent(), exampleCodeForCurrentTopic = "", onPreviousBtnClick = {
+)""".trimIndent(), paramsExplanation = """<ul><li>${Codeblock("modifier")}: Applies layout styles (padding, margin, border)</li>  
+  <li>${Codeblock("alt")}: Descriptive text for accessibility</li>  
+  <li>${Codeblock("src")}: Image source URL</li>  
+  <li>${Codeblock("id")}: Unique identifier for the <code>&lt;img&gt;</code></li>  
+  <li>${Codeblock("imgLoading")}: Native loading behavior (<code>lazy</code>/<code>eager</code>)</li>  
+  <li>${Codeblock("className")}: CSS class for the <code>&lt;img&gt;</code></li>  
+  <li>${Codeblock("contentScale")}: Image fitting mode (Cover/Contain)</li>  
+  <li>${Codeblock("alignment")}: Position within container (Top/Center/Bottom)</li>  
+  <li>${Codeblock("onThisElement")}: Adds attributes to <code>&lt;img&gt;</code></li>  
+</ul>  """.trimIndent(), exampleCodeForCurrentTopic = "", onPreviousBtnClick = {
         """
                         window.open("/components/Heading", "_self");
                     """.trimIndent()

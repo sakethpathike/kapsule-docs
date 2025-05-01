@@ -8,7 +8,7 @@ fun HTML.StaggeredGrid(currentRoute: String) {
     TopicUI(
         currentRoute = currentRoute,
         topicName = "StaggeredGrid",
-        topicDesc = """Renders a CSS column-based **staggered grid layout** using `<div>`.""",
+        topicDesc = "Creates staggered grid layouts using CSS column-based flow.",
         topicSignature = """fun FlowContent.StaggeredGrid(
     modifier: Modifier = Modifier(),
     columnCount: Int,
@@ -18,19 +18,14 @@ fun HTML.StaggeredGrid(currentRoute: String) {
     onThisElement: DIV.() -> Unit = {},
     content: DIV.() -> Unit
 )""",
-        paramsExplanation = """${Codeblock("modifier")}: Layout and styling (margin, padding, etc).
-
-${Codeblock("columnCount")}: Number of vertical columns.
-
-${Codeblock("columnGap")}: Space between columns (default 16px).
-
-${Codeblock("className")}: Optional CSS class for the container.
-
-${Codeblock("id")}: Optional ID for the grid container.
-
-${Codeblock("onThisElement")}: Hook to modify the container directly.
-
-${Codeblock("content")}: Grid items/content to be placed inside the staggered layout.""",
+        paramsExplanation = """<ul><li>${Codeblock("modifier")}: Applies layout styles (margin, padding) to the grid</li>  
+              <li>${Codeblock("columnCount")}: Number of vertical columns in the layout</li>  
+              <li>${Codeblock("columnGap")}: Space between columns (default: 16px)</li>  
+              <li>${Codeblock("className")}: CSS class for the container <code>&lt;div&gt;</code></li>  
+              <li>${Codeblock("id")}: Unique ID for the grid container</li>  
+              <li>${Codeblock("onThisElement")}: Adds attributes/configurations to the container</li>  
+              <li>${Codeblock("content")}: Items to display in the staggered grid</li>  
+            </ul>""".trimIndent(),
         exampleCodeForCurrentTopic = "TODO()",
         showNextBtn = false,
         onPreviousBtnClick = {

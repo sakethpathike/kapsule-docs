@@ -8,7 +8,7 @@ fun HTML.Box(currentRoute: String) {
     TopicUI(
         currentRoute = currentRoute,
         topicName = "Box",
-        topicDesc = "`Box` is a generic container component in Kapsule. It wraps a `<code>div</code>` and lets you apply modifiers, CSS classes, IDs, and raw DSL calls before placing any nested content. Use it whenever you need a flexible wrapper for styling or attaching attributes.",
+        topicDesc = "<code>Box</code> creates a flexible container using a <code>div</code> wrapper",
         topicSignature = """fun FlowContent.Box(
     modifier: Modifier,
     className: String? = null,
@@ -26,16 +26,12 @@ fun HTML.Box(currentRoute: String) {
     }
 }""".trimIndent(),
         exampleCodeForCurrentTopic = "",
-        paramsExplanation = """${Codeblock("modifier")}: A Compose-style Modifier that builds inline CSS for the <code>div</code> (padding, margin, size, background, flex, etc.).
-
-            ${Codeblock("className")}: Optional CSS class string to apply to the <code>div</code> container.
-
-            ${Codeblock("onThisElement")}: Lambda on the raw DIV receiver. Use this to add extra attributes, event listeners, data-attributes, or nested DSL calls before the content.
-
-            ${Codeblock("id")}: Optional id attribute for the <code>div</code> container.
-    
-            ${Codeblock("init")}: Lambda defining the nested content inside the <code>div</code>. Write any Kapsule components or raw HTML DSL calls here.
-        """.trimIndent(),
+        paramsExplanation = """<ul><li>${Codeblock("modifier")}: Builds inline CSS styles for the <code>div</code> (padding, margin, flex properties)</li>  
+  <li>${Codeblock("className")}: Optional CSS class for the container <code>div</code></li>  
+  <li>${Codeblock("onThisElement")}: Adds attributes/event listeners to the <code>div</code></li>  
+  <li>${Codeblock("id")}: Unique identifier for the <code>div</code></li>  
+  <li>${Codeblock("init")}: Defines nested content inside the <code>div</code></li>  
+</ul>  """.trimIndent(),
         onPreviousBtnClick = {
             """
                         window.open("/components/Spacer", "_self");

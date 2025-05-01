@@ -45,13 +45,14 @@ fun HTML.TopicUI(
             Text(
                 text = """
                 <b>Parameters</b>:
-
-            $paramsExplanation
             """.trimIndent(), color = "#ffffff", fontSize = 18.px, fontFamily = "Inter"
+            )
+            Text(
+                text = paramsExplanation.trimIndent(), color = "#ffffff", fontSize = 18.px, fontFamily = "Inter"
             )
 
             Text(
-                text = "\nHere's how you might use the ${Codeblock(topicName)} function",
+                text = "Here's how you might use the ${Codeblock(topicName)} function",
                 color = "#ffffff",
                 fontSize = 18.px,
                 fontFamily = "Inter",

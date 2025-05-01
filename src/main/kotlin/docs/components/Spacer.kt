@@ -8,24 +8,18 @@ fun HTML.Spacer(currentRoute: String) {
     TopicUI(
         currentRoute = currentRoute,
         topicName = "Spacer",
-        topicDesc = "`Spacer` is a simple utility component in Kapsule that renders an empty `<code>div</code>` to occupy space. It behaves like an inline-block element and accepts all the usual modifiers, CSS classes, and IDs. Use it when you need precise control over spacing in your layout.",
+        topicDesc = "<code>Spacer</code> creates an empty <code>div</code> for layout spacing.\n<li>Wrap in ${Codeblock("Box")} if raw spacer needs container behavior.</li>",
         topicSignature = """fun FlowContent.Spacer(
     className: String? = null,
     id: String? = null,
     onThisElement: DIV.() -> Unit = {},
     modifier: Modifier = Modifier()
 )""".trimIndent(),
-        paramsExplanation = """
-            (wrap spacer around box, if raw spacer doesnt work)
-            
-            ${Codeblock("className")}: Optional CSS class string to apply to the spacer <code>div</code>.
-
-            ${Codeblock("id")}: Optional id attribute for the spacer <code>div</code>.
-
-            ${Codeblock("onThisElement")}: A lambda on the raw DIV receiver. Use this to add extra attributes, event listeners, or nested DSL calls on the spacer element.
-
-            ${Codeblock("modifier")}: A Compose-style Modifier that builds inline CSS for the spacer. By default it sets display: inline-block, and you can chain padding, margin, width, height, or any other CSS properties.
-        """.trimIndent(),
+        paramsExplanation = """<ul class><li>${Codeblock("className")}: CSS class for spacer <code>div</code></li>  
+  <li>${Codeblock("id")}: Unique identifier for spacer <code>div</code></li>  
+  <li>${Codeblock("onThisElement")}: Configure spacer <code>div</code> attributes/listeners</li>  
+  <li>${Codeblock("modifier")}: Builds CSS styles (default: <code>display: inline-block</code>)</li>  
+</ul>  """.trimIndent(),
         exampleCodeForCurrentTopic = "",
         onPreviousBtnClick = {
             """

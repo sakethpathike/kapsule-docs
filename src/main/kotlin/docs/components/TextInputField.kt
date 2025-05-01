@@ -18,23 +18,15 @@ fun HTML.TextInputField(currentRoute: String) {
                 fontFamily: String,
                 modifier: Modifier, onThisElement: INPUT.() -> Unit = {}
             )
-        """.trimIndent(), paramsExplanation = """
-            ${Codeblock("value")}: Text content of the input.
-
-            ${Codeblock("className")}: Optional CSS class.
-
-            ${Codeblock("id")}: Optional element ID.
-
-            ${Codeblock("fontWeight")}: CSS font-weight (e.g., "500", "bold").
-
-            ${Codeblock("fontSize")}: CSS font-size (e.g., "16px").
-
-            ${Codeblock("fontFamily")}: CSS font-family (e.g., "Inter").
-
-            ${Codeblock("modifier")}: Adds layout/style like padding, margin, background, etc.
-
-            ${Codeblock("onThisElement")}: Hook to add attributes like placeholder, name, disabled, etc.
-        """.trimIndent(), exampleCodeForCurrentTopic = "", onPreviousBtnClick = {
+        """.trimIndent(), paramsExplanation = """<ul><li>${Codeblock("value")}: Content of the <code>&lt;input&gt;</code> element</li>  
+  <li>${Codeblock("className")}: CSS class for the <code>&lt;input&gt;</code></li>  
+  <li>${Codeblock("id")}: Unique identifier for the <code>&lt;input&gt;</code></li>  
+  <li>${Codeblock("fontWeight")}: CSS <code>font-weight</code> (e.g., "bold" or "500")</li>  
+  <li>${Codeblock("fontSize")}: CSS <code>font-size</code> (e.g., "16px")</li>  
+  <li>${Codeblock("fontFamily")}: CSS <code>font-family</code> (e.g., "Inter")</li>  
+  <li>${Codeblock("modifier")}: Applies layout styles (padding, margin, background)</li>  
+  <li>${Codeblock("onThisElement")}: Adds attributes like <code>placeholder</code> or <code>disabled</code></li>  
+</ul>  """.trimIndent(), exampleCodeForCurrentTopic = "", onPreviousBtnClick = {
         """
                         window.open("/components/Button", "_self");
                     """.trimIndent()

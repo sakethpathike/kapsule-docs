@@ -3,11 +3,7 @@ package io.github.sakethpathike.docs
 import docs.common.ui.CommonScaffold
 import io.github.sakethpathike.docs.common.Colors
 import io.github.sakethpathike.docs.common.ui.BottomPagerControls
-import kotlinx.html.HTML
-import kotlinx.html.id
-import kotlinx.html.onClick
-import kotlinx.html.span
-import kotlinx.html.style
+import kotlinx.html.*
 import sakethh.kapsule.*
 import sakethh.kapsule.utils.*
 
@@ -23,11 +19,11 @@ fun HTML.GettingStarted(currentRoute: String) {
         ) {
             Text(
                 text = """
-            Jetpack Compose's declarative approach with Kotlin DSL is one of my best experiences writing Compose/Kotlin code.
+            <strong>Jetpack Compose's declarative approach</strong> with <strong>Kotlin DSL</strong> is one of my best experiences writing Compose/Kotlin code.
 
-            Well, that wasn’t quite the case when handling HTML sent from the server for simple static sites like the one you’re currently on. <code>kotlinx.html</code> solves this, but since I'm more familiar with Compose, I thought there should be a library that just does this. There are solutions like Kobweb and Kweb, but they're quite heavy/full-stack-based, rather than just HTML generation.
+Well, that wasn’t quite the case when handling HTML sent from the server for simple static sites like the one you’re currently on. <code>kotlinx.html</code> solves this, but since I'm more familiar with <strong>Compose</strong>, I thought <em>a library should just do this</em>. Some solutions like <strong>Kobweb</strong> and <strong>Kweb</strong> are quite heavy/full-stack-based, rather than just HTML generation.
 
-            ANDDDD... I have a plan.
+<strong>ANDDDD... I have a plan.</strong>
         """.trimIndent(), color = Colors.onSurfaceDark, fontSize = 18.px, fontFamily = "Inter"
             )
             Box(Modifier().margin(top = 10.px, bottom = 10.px)) {
@@ -40,7 +36,7 @@ fun HTML.GettingStarted(currentRoute: String) {
                 )
             }
             Text(
-                text = "Guess what? Mine actually works — unlike Vander Linde’s. This site’s built with kapsule \uD83E\uDD20",
+                text = "<strong>Guess what?</strong> <em>Mine actually works</em> — unlike <strong>Vander Linde’s</strong>. This site’s built with <code>kapsule</code> \uD83E\uDD20",
                 color = Colors.onSurfaceDark,
                 fontSize = 18.px,
                 fontFamily = "Inter"
@@ -55,7 +51,7 @@ fun HTML.GettingStarted(currentRoute: String) {
             }
 
             Text(
-                text = " kapsule is a Kotlin Multiplatform library, wrapping <code>kotlinx.html</code> with Jetpack Compose-style modifiers and layout semantics to simplify static HTML generation.",
+                text = "<strong>kapsule</strong> is a <strong>Kotlin Multiplatform</strong> library, wrapping <code>kotlinx.html</code> with <strong>Jetpack Compose-style modifiers</strong> and <strong>layout semantics</strong> to simplify static HTML generation.",
                 color = Colors.onSurfaceDark,
                 fontSize = 18.px,
                 fontFamily = "Inter"
@@ -86,7 +82,7 @@ fun HTML.GettingStarted(currentRoute: String) {
                 modifier = Modifier().margin(top = 15.px, bottom = 10.px)
             )
             Text(
-                text = "kapsule's motto isn't to be \"yet another fullstack solution\" or overengineer beyond its core goal — it strictly focuses on HTML/CSS generation with a Compose-like feel. If you need more than this, you're probably looking for Kobweb/Kweb instead.",
+                text = "<strong>kapsule's</strong> motto isn't to be <em>\"yet another fullstack solution\"</em> or overengineer beyond its core goal — it strictly focuses on <strong>HTML/CSS generation</strong> with a <strong>Compose-like feel</strong>. If you need more than this, you're probably looking for <strong>Kobweb</strong>/<strong>Kweb</strong> instead.",
                 color = Colors.onSurfaceDark,
                 fontSize = 18.px,
                 fontFamily = "Inter"
@@ -99,7 +95,7 @@ fun HTML.GettingStarted(currentRoute: String) {
                 modifier = Modifier().margin(top = 15.px, bottom = 10.px)
             )
             Text(
-                text = "kapsule only uses Compose-style not Compose-behavior. The behaviour still depends on HTML/CSS (and JS if you add raw scripts). You should look up MDN docs or Stack Overflow when something doesn't behave like Jetpack Compose - that's the web dev experience.",
+                text = "<strong>kapsule</strong> only uses <strong>Compose-style</strong>, not <strong>Compose-behavior</strong>. The behaviour still depends on <strong>HTML/CSS</strong> (and <strong>JS</strong> if you add raw scripts). You should look up <em>MDN docs</em> or <em>Stack Overflow</em> when something doesn't behave like <strong>Jetpack Compose</strong> — that's the <em>web dev experience</em>.",
                 color = Colors.onSurfaceDark,
                 fontSize = 18.px,
                 fontFamily = "Inter",
@@ -111,8 +107,9 @@ fun HTML.GettingStarted(currentRoute: String) {
                 modifier = Modifier().margin(top = 15.px, bottom = 10.px)
             )
             Text(
-                text = """kapsule is available on Maven Central.
-Add the following to your build.gradle.kts dependencies block:""", color = Colors.onSurfaceDark,
+                text = """<strong>kapsule</strong> is available on <strong>Maven Central</strong>.<br>
+Add the following to your <code>build.gradle.kts</code> <strong>dependencies</strong> block:
+""", color = Colors.onSurfaceDark,
                 fontSize = 18.px,
                 fontFamily = "Inter"
             )

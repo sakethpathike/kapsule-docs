@@ -42,14 +42,14 @@ private fun DIV.BottomButton(label: String, text: String, onClick: () -> String)
                 text = label,
                 fontFamily = "Inter",
                 color = Colors.ButtonContainerColor,
-                fontSize = 10.px,
+                fontSize = 12.px,
             )
 
             Text(
                 text = text,
                 fontFamily = "Inter",
                 color = Colors.ButtonContainerColor,
-                fontSize = 15.px,
+                fontSize = 18.px,
                 fontWeight = "bold"
             )
         }

@@ -41,7 +41,7 @@ fun HTML.Surface(currentRoute: String) {
                 <pre>Surface(
     fonts =
         listOf(
-            "https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins&family=JetBrains+Mono&display=swap"
+            "https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter&family=JetBrains+Mono&display=swap"
         ),
     modifier =
         Modifier()

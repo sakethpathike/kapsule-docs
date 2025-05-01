@@ -11,7 +11,7 @@ import sakethh.kapsule.utils.HorizontalAlignment
 import sakethh.kapsule.utils.Shape
 import sakethh.kapsule.utils.px
 
-fun DIV.SidebarSelectedTextComponent(selected: Boolean, text: String, onThisElement: DIV.() -> Unit = {}) {
+fun DIV.SidebarSelectableTextComponent(selected: Boolean, text: String, onThisElement: DIV.() -> Unit = {}) {
     Row(
         horizontalAlignment = HorizontalAlignment.Center,
         modifier = Modifier().cursor(Cursor.Pointer)
@@ -33,9 +33,9 @@ fun DIV.SidebarSelectedTextComponent(selected: Boolean, text: String, onThisElem
             Text(
                 text = Typography.bullet.toString(),
                 fontSize = 16.px,
-                fontWeight = "25",
-                fontFamily = "Poppins",
-                color = "white",
+                fontWeight = "regular",
+                fontFamily = "Inter",
+                color = Colors.NavbarSelectedTextColor,
                 modifier = Modifier().margin(end = 5.px),
             )
         }
@@ -43,9 +43,9 @@ fun DIV.SidebarSelectedTextComponent(selected: Boolean, text: String, onThisElem
             modifier = Modifier().margin(end = 15.px),
             text = text,
             fontSize = 16.px,
-            fontWeight = "25",
-            fontFamily = "Poppins",
-            color = "white"
+            fontWeight = if (selected) "bold" else "regular",
+            fontFamily = "Inter",
+            color = Colors.NavbarSelectedTextColor
         )
     }
 }

@@ -23,7 +23,7 @@ fun HTML.Text(currentRoute: String) {
 
             ${Codeblock("fontSize")}:  The size of the text.  It defaults to "12.px".  You can use any valid CSS size unit (e.g., "16px", "1em", "0.8rem").
 
-            ${Codeblock("fontFamily")}:  The font family to use for the text (e.g., "Arial", "Verdana", "Poppins").  If not provided, the browser's default font will be used.
+            ${Codeblock("fontFamily")}:  The font family to use for the text (e.g., "Arial", "Verdana", "Inter").  If not provided, the browser's default font will be used.
 
             ${Codeblock("color")}:  The color of the text.  You can specify this using a named color (e.g., "red", "blue"), a hexadecimal value (e.g., "#ff0000"), or an RGB/RGBA value.
 

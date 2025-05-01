@@ -9,7 +9,7 @@ import sakethh.kapsule.utils.*
 
 fun Codeblock(code: String): String {
     return """
-        <code style="background:${Colors.primaryDark}; padding:2px 4px; border-radius:4px;color: ${Colors.onPrimaryDark};">$code</code>
+        <code style="background:${Colors.primaryDark}; padding:2px 4px; font-family: 'JetBrains Mono'; border-radius:4px;color: ${Colors.onPrimaryDark};">$code</code>
     """.trimIndent()
 }
 
@@ -25,6 +25,6 @@ fun DIV.CustomCodeBlock(code: String) {
                 )
             )
     ) {
-        Text(text = code, color = Colors.onSurfaceDark, fontSize = 18.px, fontFamily = "Poppins")
+        Text(text = code, color = Colors.onSurfaceDark, fontSize = 18.px, fontFamily = "JetBrains Mono")
     }
 }

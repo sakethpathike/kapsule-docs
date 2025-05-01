@@ -28,7 +28,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
     Surface(
         fonts = listOf(
             "https://fonts.googleapis.com/icon?family=Material+Icons",
-            "https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins&family=JetBrains+Mono&display=swap"
+            "https://fonts.googleapis.com/css2?family=Inter&family=JetBrains+Mono&family=Megrim&display=swap"
         ), modifier = Modifier().padding(0.px).margin(0).backgroundColor(Colors.Background).custom(
             """
             overflow: hidden;
@@ -71,9 +71,9 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                     Text(
                         modifier = userSelectMod,
                         text = "kapsule",
-                        fontFamily = "Abril Fatface", color = Colors.TopAppBarTitleContentColor,
+                        fontFamily = "Megrim", color = Colors.TopAppBarTitleContentColor,
                         fontSize = 25.px,
-                        fontWeight = 45.px
+                        fontWeight = "bold"
                     )
                 }
                 Row(
@@ -94,7 +94,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                     }
                     Spacer(modifier = Modifier().width(5.px))
                     Text(
-                        text = " on Github", fontFamily = "Poppins", color = Colors.TopAppBarTitleContentColor,
+                        text = " on Github", fontFamily = "Inter", fontWeight = "bold", color = Colors.TopAppBarTitleContentColor,
                         fontSize = 14.px,
                     )
                     Spacer(modifier = Modifier().width(5.px))
@@ -113,7 +113,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                     .padding(value = 15.px)
             ) {
                 (currentRoute == "/").let {
-                    SidebarSelectedTextComponent(selected = it, text = "Getting started", onThisElement = {
+                    SidebarSelectableTextComponent(selected = it, text = "Getting started", onThisElement = {
                         onClick = """
                                     window.open("/", "_self");
                                   """.trimIndent()
@@ -128,25 +128,29 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                                 const components = document.getElementById("components");
                                 const componentsExpandEmoji = document.getElementById("componentsExpandEmoji");
                                 if (components.style.display === "none") {
-                                    componentsExpandEmoji.textContent = "⬇️";
+                                    componentsExpandEmoji.textContent = "keyboard_arrow_up";
                                     components.style.display = "block";
                                 } else {
-                                    componentsExpandEmoji.textContent = "➡️";
+                                    componentsExpandEmoji.textContent = "keyboard_arrow_down";
                                     components.style.display = "none";
                                 }
                             """.trimIndent()
                     }) {
-                    Text(
-                        text = "⬇\uFE0F",
-                        fontSize = 20.px,
-                        id = "componentsExpandEmoji",
-                    )
+                    span(classes = "material-icons"){
+                        id = "componentsExpandEmoji"
+                        style = Modifier().custom(
+                            """
+                                font-size: 20px
+                            """.trimIndent()
+                        ).color(Colors.TopAppBarTitleContentColor).buildStyle()
+                        +"keyboard_arrow_up"
+                    }
                     Spacer(modifier = Modifier().width(10.px))
                     Text(
                         text = "Components",
                         fontSize = 20.px,
                         fontWeight = "bold",
-                        fontFamily = "Poppins", color = Colors.NavbarSelectedTextColor
+                        fontFamily = "Inter", color = Colors.NavbarSelectedTextColor
                     )
                 }
                 Spacer(modifier = Modifier().height(10.px))
@@ -155,7 +159,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                 ) {
                     components.forEach { component ->
                         ("/components/$component" == currentRoute).let {
-                            SidebarSelectedTextComponent(selected = it, text = component, onThisElement = {
+                            SidebarSelectableTextComponent(selected = it, text = component, onThisElement = {
                                 onClick = """
                         window.open("/components/${component}", "_self");
                     """.trimIndent()

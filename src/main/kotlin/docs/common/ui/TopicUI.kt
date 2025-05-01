@@ -3,9 +3,7 @@ package io.github.sakethpathike.docs.common.ui
 import docs.common.ui.CommonScaffold
 import io.github.sakethpathike.docs.common.Colors
 import kotlinx.html.HTML
-import sakethh.kapsule.Column
-import sakethh.kapsule.Modifier
-import sakethh.kapsule.Text
+import sakethh.kapsule.*
 import sakethh.kapsule.utils.px
 
 fun HTML.TopicUI(
@@ -33,27 +31,30 @@ fun HTML.TopicUI(
                 text = topicName,
                 color = Colors.Primary,
                 fontWeight = "bold",
-                fontFamily = "Poppins",
+                fontFamily = "Inter",
                 fontSize = 25.px
             )
+            Box(modifier = Modifier()) {
+                Spacer(modifier = Modifier().height(10.px))
+            }
             Text(
-                text = topicDesc, color = Colors.OnBackground, fontSize = 18.px, fontFamily = "Poppins"
+                text = topicDesc, color = Colors.OnBackground, fontSize = 18.px, fontFamily = "Inter"
             )
-            Text(text = "\nFunction Signature:", color = "#ffffff", fontSize = 18.px, fontFamily = "Poppins")
+            Text(text = "\nFunction Signature:", color = "#ffffff", fontSize = 18.px, fontFamily = "Inter")
             CustomCodeBlock(code = topicSignature)
             Text(
                 text = """
                 <b>Parameters</b>:
 
             $paramsExplanation
-            """.trimIndent(), color = "#ffffff", fontSize = 18.px, fontFamily = "Poppins"
+            """.trimIndent(), color = "#ffffff", fontSize = 18.px, fontFamily = "Inter"
             )
 
             Text(
                 text = "\nHere's how you might use the ${Codeblock(topicName)} function",
                 color = "#ffffff",
                 fontSize = 18.px,
-                fontFamily = "Poppins",
+                fontFamily = "Inter",
                 fontWeight = "bold"
             )
             CustomCodeBlock(code = exampleCodeForCurrentTopic)

@@ -4,7 +4,10 @@ import docs.common.ui.CommonScaffold
 import io.github.sakethpathike.docs.common.Colors
 import io.github.sakethpathike.docs.common.ui.BottomPagerControls
 import kotlinx.html.HTML
+import kotlinx.html.id
 import kotlinx.html.onClick
+import kotlinx.html.span
+import kotlinx.html.style
 import sakethh.kapsule.*
 import sakethh.kapsule.utils.*
 
@@ -25,7 +28,7 @@ fun HTML.GettingStarted(currentRoute: String) {
             Well, that wasn’t quite the case when handling HTML sent from the server for simple static sites like the one you’re currently on. <code>kotlinx.html</code> solves this, but since I'm more familiar with Compose, I thought there should be a library that just does this. There are solutions like Kobweb and Kweb, but they're quite heavy/full-stack-based, rather than just HTML generation.
 
             ANDDDD... I have a plan.
-        """.trimIndent(), color = Colors.onSurfaceDark, fontSize = 18.px, fontFamily = "Poppins"
+        """.trimIndent(), color = Colors.onSurfaceDark, fontSize = 18.px, fontFamily = "Inter"
             )
             Box(Modifier().margin(top = 10.px, bottom = 10.px)) {
                 Image(
@@ -40,7 +43,7 @@ fun HTML.GettingStarted(currentRoute: String) {
                 text = "Guess what? Mine actually works — unlike Vander Linde’s. This site’s built with kapsule \uD83E\uDD20",
                 color = Colors.onSurfaceDark,
                 fontSize = 18.px,
-                fontFamily = "Poppins"
+                fontFamily = "Inter"
             )
 
             Box(Modifier().fillMaxWidth().padding(top = 10.px, bottom = 10.px)) {
@@ -55,12 +58,12 @@ fun HTML.GettingStarted(currentRoute: String) {
                 text = " kapsule is a Kotlin Multiplatform library, wrapping <code>kotlinx.html</code> with Jetpack Compose-style modifiers and layout semantics to simplify static HTML generation.",
                 color = Colors.onSurfaceDark,
                 fontSize = 18.px,
-                fontFamily = "Poppins"
+                fontFamily = "Inter"
             )
             Text(
                 text = "When to use kapsule?", color = Colors.primaryDark,
                 fontSize = 24.px,
-                fontFamily = "Poppins",
+                fontFamily = "Inter",
                 fontWeight = "bold",
                 modifier = Modifier().margin(top = 10.px, bottom = 10.px)
             )
@@ -72,26 +75,26 @@ fun HTML.GettingStarted(currentRoute: String) {
                 Text(
                     text = Typography.bullet + " " + it, color = Colors.onSurfaceDark,
                     fontSize = 18.px,
-                    fontFamily = "Poppins",
+                    fontFamily = "Inter",
                     display = Display.Block
                 )
             }
             Text(
                 text = "Not a fullstack framework", color = Colors.primaryDark,
                 fontSize = 24.px,
-                fontFamily = "Poppins", fontWeight = "bold",
+                fontFamily = "Inter", fontWeight = "bold",
                 modifier = Modifier().margin(top = 15.px, bottom = 10.px)
             )
             Text(
                 text = "kapsule's motto isn't to be \"yet another fullstack solution\" or overengineer beyond its core goal — it strictly focuses on HTML/CSS generation with a Compose-like feel. If you need more than this, you're probably looking for Kobweb/Kweb instead.",
                 color = Colors.onSurfaceDark,
                 fontSize = 18.px,
-                fontFamily = "Poppins"
+                fontFamily = "Inter"
             )
             Text(
                 text = "Compose-style not Compose-behavior", color = Colors.primaryDark,
                 fontSize = 24.px,
-                fontFamily = "Poppins",
+                fontFamily = "Inter",
                 fontWeight = "bold",
                 modifier = Modifier().margin(top = 15.px, bottom = 10.px)
             )
@@ -99,19 +102,19 @@ fun HTML.GettingStarted(currentRoute: String) {
                 text = "kapsule only uses Compose-style not Compose-behavior. The behaviour still depends on HTML/CSS (and JS if you add raw scripts). You should look up MDN docs or Stack Overflow when something doesn't behave like Jetpack Compose - that's the web dev experience.",
                 color = Colors.onSurfaceDark,
                 fontSize = 18.px,
-                fontFamily = "Poppins",
+                fontFamily = "Inter",
             )
             Text(
                 text = "Adding dependency", color = Colors.primaryDark,
                 fontSize = 24.px,
-                fontFamily = "Poppins", fontWeight = "bold",
+                fontFamily = "Inter", fontWeight = "bold",
                 modifier = Modifier().margin(top = 15.px, bottom = 10.px)
             )
             Text(
                 text = """kapsule is available on Maven Central.
 Add the following to your build.gradle.kts dependencies block:""", color = Colors.onSurfaceDark,
                 fontSize = 18.px,
-                fontFamily = "Poppins"
+                fontFamily = "Inter"
             )
 
             val latestkapsuleVersion = "0.0.4"/*HttpClient.newHttpClient().send(
@@ -134,13 +137,17 @@ Add the following to your build.gradle.kts dependencies block:""", color = Color
                     id = "dependency",
                     modifier = Modifier(), text = """
                     implementation("$kapsuleDependency")
-                    """.trimIndent(), color = Colors.onSurfaceDark, fontSize = 18.px, fontFamily = "Poppins"
+                    """.trimIndent(), color = Colors.onSurfaceDark, fontSize = 18.px, fontFamily = "Jetbrains Mono"
                 )
-                Text(
-                    modifier = Modifier().cursor(Cursor.Pointer),
-                    text = "\uD83D\uDCCB", color = Colors.onSurfaceDark,
-                    fontSize = 18.px, fontFamily = "Poppins", onThisElement = {
-                        onClick = """
+                span(classes = "material-icons"){
+                    id = "componentsExpandEmoji"
+                    style = Modifier().custom(
+                        """
+                                font-size: 20px
+                            """.trimIndent()
+                    ).cursor(Cursor.Pointer).color(Colors.onSurfaceDark).buildStyle()
+
+                    onClick = """
   const div = document.getElementById('dependency');
   const textToCopy = div.textContent;
 
@@ -165,8 +172,8 @@ Add the following to your build.gradle.kts dependencies block:""", color = Color
   }
 
                         """.trimIndent()
-                    }
-                )
+                    +"content_copy"
+                }
             }
             BottomPagerControls(
                 showPreviousBtn = false,

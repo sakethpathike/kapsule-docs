@@ -29,7 +29,7 @@ fun HTML.TextInputField(currentRoute: String) {
 
             ${Codeblock("fontSize")}: CSS font-size (e.g., "16px").
 
-            ${Codeblock("fontFamily")}: CSS font-family (e.g., "Poppins").
+            ${Codeblock("fontFamily")}: CSS font-family (e.g., "Inter").
 
             ${Codeblock("modifier")}: Adds layout/style like padding, margin, background, etc.
 

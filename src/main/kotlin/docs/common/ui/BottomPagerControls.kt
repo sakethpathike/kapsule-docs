@@ -40,15 +40,14 @@ private fun DIV.BottomButton(label: String, text: String, onClick: () -> String)
         Column(modifier = Modifier().padding(5.px)) {
             Text(
                 text = label,
-                fontFamily = "Poppins",
+                fontFamily = "Inter",
                 color = Colors.ButtonContainerColor,
                 fontSize = 10.px,
-                fontWeight = "0"
             )
 
             Text(
                 text = text,
-                fontFamily = "Poppins",
+                fontFamily = "Inter",
                 color = Colors.ButtonContainerColor,
                 fontSize = 15.px,
                 fontWeight = "bold"

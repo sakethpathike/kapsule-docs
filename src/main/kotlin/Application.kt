@@ -61,6 +61,21 @@ fun Application.module() {
                 Button(currentRoute = route)
             }
         }),
+        Route(route = "/components/TextInputField", content = { htmlScope, route ->
+            with(htmlScope) {
+                TextInputField(currentRoute = route)
+            }
+        }),
+        Route(route = "/components/BreakFlow", content = { htmlScope, route ->
+            with(htmlScope) {
+                BreakFlow(currentRoute = route)
+            }
+        }),
+        Route(route = "/components/Heading", content = { htmlScope, route ->
+            with(htmlScope) {
+                Heading(currentRoute = route)
+            }
+        }),
     )
 
     routing {

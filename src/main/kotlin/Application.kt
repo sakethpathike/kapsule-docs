@@ -105,6 +105,13 @@ fun Application.module() {
                     Surface(
                         modifier = Modifier().backgroundColor("#1b1b1b"),
                         onTheHeadElement = {
+                            unsafe {
+                                raw(
+                                    """
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                """.trimIndent()
+                                )
+                            }
                             style {
                                 unsafe {
                                     raw(
@@ -127,6 +134,10 @@ fun Application.module() {
                             Text(
                                 textAlign = TextAlign.Center,
                                 text = listOf(
+                                    """
+                                     The good news is, buddy, you came a long way.
+                                     The bad news is, buddy, you came the wrong way.
+                                    """.trimIndent(),
                                     """
                                         404: UNDYING LINK (LOVE LOCKDOWN)
                                         “Undying love... but the URL died.”

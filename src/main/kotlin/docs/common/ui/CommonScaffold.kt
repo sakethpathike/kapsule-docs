@@ -1,8 +1,7 @@
 package docs.common.ui
 
-import kotlinx.html.DIV
-import kotlinx.html.HTML
-import kotlinx.html.onClick
+import io.github.sakethpathike.docs.common.Colors
+import kotlinx.html.*
 import sakethh.kapsule.*
 import sakethh.kapsule.utils.*
 
@@ -27,8 +26,10 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
         """.trimIndent()
     )
     Surface(
-        fonts = listOf("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins&family=JetBrains+Mono&display=swap"),
-        modifier = Modifier().padding(0.px).margin(0).backgroundColor("#292929").custom(
+        fonts = listOf(
+            "https://fonts.googleapis.com/icon?family=Material+Icons",
+            "https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins&family=JetBrains+Mono&display=swap"
+        ), modifier = Modifier().padding(0.px).margin(0).backgroundColor(Colors.Background).custom(
             """
             overflow: hidden;
         """.trimIndent()
@@ -42,53 +43,61 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
             ).position(Position.Sticky).zIndex(1000)
         ) {
             Row(
-                modifier = Modifier().fillMaxWidth().height(65.px).backgroundColor("#1b1b1b"),
+                modifier = Modifier().fillMaxWidth().height(65.px)
+                    .backgroundColor(Colors.TopAppBarScrolledContainerColor),
                 verticalAlignment = VerticalAlignment.SpaceBetween,
                 horizontalAlignment = HorizontalAlignment.Center
             ) {
                 Row(horizontalAlignment = HorizontalAlignment.Center) {
-                    Text(
-                        modifier = Modifier().margin(start = 15.px).cursor(Cursor.Pointer),
-                        id = "kapsuleExpandEmoji", text = "◀\uFE0F",
-                        onThisElement = {
-                            onClick = """
+                    span(classes = "material-icons") {
+                        id = "kapsuleExpandEmoji"
+                        style = Modifier().custom(
+                            """
+                            font-size: 45px;
+                        """.trimIndent()
+                        ).color(Colors.TopAppBarTitleContentColor).cursor(Cursor.Pointer).buildStyle()
+                        onClick = """
                             const components = document.getElementById("topics-panel");
                                 const kapsuleExpandEmoji = document.getElementById("kapsuleExpandEmoji");
                                 if (components.style.display === "none") {
-                                    kapsuleExpandEmoji.textContent = "◀️";
+                                    kapsuleExpandEmoji.textContent = "arrow_left";
                                     components.style.display = "block";
                                 } else {
-                                    kapsuleExpandEmoji.textContent = "▶️";
+                                    kapsuleExpandEmoji.textContent = "arrow_right";
                                     components.style.display = "none";
-                                }
-                            
-                        """.trimIndent()
-                        },
-                        fontSize = 20.px,
-                    )
+                                }""".trimIndent()
+                        +"arrow_left"
+                    }
                     Text(
-                        modifier = Modifier().margin(start = 15.px).then(userSelectMod),
+                        modifier = userSelectMod,
                         text = "kapsule",
-                        fontFamily = "Abril Fatface",
-                        color = "white",
+                        fontFamily = "Abril Fatface", color = Colors.TopAppBarTitleContentColor,
                         fontSize = 25.px,
                         fontWeight = 45.px
                     )
                 }
-                Button(
-                    modifier = Modifier().cursor(Cursor.Pointer).margin(end = 15.px).height(35.px)
-                        .clip(shape = Shape.RoundedRectangle(12.px)).backgroundColor("#d6d6d6"), onClick = {
-                        """
+                Row(
+                    horizontalAlignment = HorizontalAlignment.Center,
+                    modifier = Modifier().cursor(Cursor.Pointer).margin(end = 15.px).height(35.px),
+                    onThisElement = {
+                        onClick = """
                         window.open("https://github.com/sakethpathike/kapsule", "_blank");
                     """.trimIndent()
                     }) {
+                    span(classes = "material-icons") {
+                        style = Modifier().custom(
+                            """
+                                font-size: 20px
+                            """.trimIndent()
+                        ).color(Colors.TopAppBarTitleContentColor).buildStyle()
+                        +"star"
+                    }
+                    Spacer(modifier = Modifier().width(5.px))
                     Text(
-                        text = "⭐ on Github",
-                        fontFamily = "Poppins",
-                        color = "black",
+                        text = " on Github", fontFamily = "Poppins", color = Colors.TopAppBarTitleContentColor,
                         fontSize = 14.px,
-                        fontWeight = "0"
                     )
+                    Spacer(modifier = Modifier().width(5.px))
                 }
             }
             Spacer(modifier = Modifier().fillMaxWidth().height(1.25.px).backgroundColor("#ffffff"))
@@ -99,7 +108,8 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                     """
                           overflow-y: auto;
                     """.trimIndent()
-                ).position(Position.Sticky).zIndex(999).height(100.vh).width(20.vw).backgroundColor(color = "#1b1b1b")
+                ).position(Position.Sticky).zIndex(999).height(100.vh).width(20.vw)
+                    .backgroundColor(color = Colors.NavigationBarColor)
                     .padding(value = 15.px)
             ) {
                 (currentRoute == "/").let {
@@ -136,8 +146,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                         text = "Components",
                         fontSize = 20.px,
                         fontWeight = "bold",
-                        fontFamily = "Poppins",
-                        color = "white"
+                        fontFamily = "Poppins", color = Colors.NavbarSelectedTextColor
                     )
                 }
                 Spacer(modifier = Modifier().height(10.px))

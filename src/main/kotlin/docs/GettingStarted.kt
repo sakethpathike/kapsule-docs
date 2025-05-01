@@ -1,6 +1,7 @@
 package io.github.sakethpathike.docs
 
 import docs.common.ui.CommonScaffold
+import io.github.sakethpathike.docs.common.Colors
 import io.github.sakethpathike.docs.common.ui.BottomPagerControls
 import kotlinx.html.HTML
 import kotlinx.html.onClick
@@ -24,39 +25,40 @@ fun HTML.GettingStarted(currentRoute: String) {
             Well, that wasn’t quite the case when handling HTML sent from the server for simple static sites like the one you’re currently on. <code>kotlinx.html</code> solves this, but since I'm more familiar with Compose, I thought there should be a library that just does this. There are solutions like Kobweb and Kweb, but they're quite heavy/full-stack-based, rather than just HTML generation.
 
             ANDDDD... I have a plan.
-        """.trimIndent(), color = "#ffffff", fontSize = 18.px, fontFamily = "Poppins"
+        """.trimIndent(), color = Colors.onSurfaceDark, fontSize = 18.px, fontFamily = "Poppins"
             )
             Box(Modifier().margin(top = 10.px, bottom = 10.px)) {
                 Image(
                     alignment = ObjectPosition.Predefined.Top,
-                    modifier = Modifier().border(radius = 15, color = "#ffffff").width(450.px)
+                    modifier = Modifier().border(radius = 15.px, color = Colors.primaryDark, width = 1.5.px)
+                        .width(450.px)
                         .clip(Shape.RoundedRectangle(15.px)),
                     src = "https://i.ibb.co/TDT8Kzkp/tYzOOun.jpg"
                 )
             }
             Text(
                 text = "Guess what? Mine actually works — unlike Vander Linde’s. This site’s built with kapsule \uD83E\uDD20",
-                color = "#ffffff",
+                color = Colors.onSurfaceDark,
                 fontSize = 18.px,
                 fontFamily = "Poppins"
             )
 
             Box(Modifier().fillMaxWidth().padding(top = 10.px, bottom = 10.px)) {
                 Spacer(
-                    modifier = Modifier().height(2.5.px).opacity(0.25).fillMaxWidth().backgroundColor("#ffffff")
+                    modifier = Modifier().height(2.5.px).opacity(0.25).fillMaxWidth()
+                        .backgroundColor(Colors.onSurfaceDark)
                         .clip(Shape.RoundedRectangle(cornerRadius = 5.px))
                 )
             }
 
             Text(
                 text = " kapsule is a Kotlin Multiplatform library, wrapping <code>kotlinx.html</code> with Jetpack Compose-style modifiers and layout semantics to simplify static HTML generation.",
-                color = "#ffffff",
+                color = Colors.onSurfaceDark,
                 fontSize = 18.px,
                 fontFamily = "Poppins"
             )
             Text(
-                text = "When to use kapsule?",
-                color = "#ffffff",
+                text = "When to use kapsule?", color = Colors.primaryDark,
                 fontSize = 24.px,
                 fontFamily = "Poppins",
                 fontWeight = "bold",
@@ -68,29 +70,26 @@ fun HTML.GettingStarted(currentRoute: String) {
                 "Building static/simple pages with Compose-style Kotlin DSL"
             ).forEach {
                 Text(
-                    text = Typography.bullet + " " + it,
-                    color = "#ffffff",
+                    text = Typography.bullet + " " + it, color = Colors.onSurfaceDark,
                     fontSize = 18.px,
                     fontFamily = "Poppins",
                     display = Display.Block
                 )
             }
             Text(
-                text = "Not a fullstack framework",
-                color = "#ffffff",
+                text = "Not a fullstack framework", color = Colors.primaryDark,
                 fontSize = 24.px,
                 fontFamily = "Poppins", fontWeight = "bold",
                 modifier = Modifier().margin(top = 15.px, bottom = 10.px)
             )
             Text(
                 text = "kapsule's motto isn't to be \"yet another fullstack solution\" or overengineer beyond its core goal — it strictly focuses on HTML/CSS generation with a Compose-like feel. If you need more than this, you're probably looking for Kobweb/Kweb instead.",
-                color = "#ffffff",
+                color = Colors.onSurfaceDark,
                 fontSize = 18.px,
                 fontFamily = "Poppins"
             )
             Text(
-                text = "Compose-style not Compose-behavior",
-                color = "#ffffff",
+                text = "Compose-style not Compose-behavior", color = Colors.primaryDark,
                 fontSize = 24.px,
                 fontFamily = "Poppins",
                 fontWeight = "bold",
@@ -98,21 +97,19 @@ fun HTML.GettingStarted(currentRoute: String) {
             )
             Text(
                 text = "kapsule only uses Compose-style not Compose-behavior. The behaviour still depends on HTML/CSS (and JS if you add raw scripts). You should look up MDN docs or Stack Overflow when something doesn't behave like Jetpack Compose - that's the web dev experience.",
-                color = "#ffffff",
+                color = Colors.onSurfaceDark,
                 fontSize = 18.px,
                 fontFamily = "Poppins",
             )
             Text(
-                text = "Adding dependency",
-                color = "#ffffff",
+                text = "Adding dependency", color = Colors.primaryDark,
                 fontSize = 24.px,
                 fontFamily = "Poppins", fontWeight = "bold",
                 modifier = Modifier().margin(top = 15.px, bottom = 10.px)
             )
             Text(
                 text = """kapsule is available on Maven Central.
-Add the following to your build.gradle.kts dependencies block:""",
-                color = "#ffffff",
+Add the following to your build.gradle.kts dependencies block:""", color = Colors.onSurfaceDark,
                 fontSize = 18.px,
                 fontFamily = "Poppins"
             )
@@ -128,20 +125,20 @@ Add the following to your build.gradle.kts dependencies block:""",
             Row(
                 verticalAlignment = VerticalAlignment.SpaceBetween,
                 horizontalAlignment = HorizontalAlignment.Center,
-                modifier = Modifier().margin(top = 10.px, bottom = 30.px).padding(10.px).backgroundColor("#1b1b1b")
-                    .border(5, color = "#ffffff")
+                modifier = Modifier().margin(top = 10.px, bottom = 30.px).padding(10.px)
+                    .backgroundColor(Colors.surfaceContainerHighDarkHighContrast)
+                    .border(15, color = Colors.surfaceContainerHighDarkHighContrast)
             ) {
                 val kapsuleDependency = "io.github.sakethpathike:kapsule:${latestkapsuleVersion.trim()}"
                 Text(
                     id = "dependency",
                     modifier = Modifier(), text = """
                     implementation("$kapsuleDependency")
-                    """.trimIndent(), color = "#ffffff", fontSize = 18.px, fontFamily = "Poppins"
+                    """.trimIndent(), color = Colors.onSurfaceDark, fontSize = 18.px, fontFamily = "Poppins"
                 )
                 Text(
                     modifier = Modifier().cursor(Cursor.Pointer),
-                    text = "\uD83D\uDCCB",
-                    color = "#ffffff",
+                    text = "\uD83D\uDCCB", color = Colors.onSurfaceDark,
                     fontSize = 18.px, fontFamily = "Poppins", onThisElement = {
                         onClick = """
   const div = document.getElementById('dependency');

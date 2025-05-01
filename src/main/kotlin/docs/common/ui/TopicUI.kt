@@ -1,6 +1,7 @@
 package io.github.sakethpathike.docs.common.ui
 
 import docs.common.ui.CommonScaffold
+import io.github.sakethpathike.docs.common.Colors
 import kotlinx.html.HTML
 import sakethh.kapsule.Column
 import sakethh.kapsule.Modifier
@@ -28,9 +29,15 @@ fun HTML.TopicUI(
             """.trimIndent()
             )
         ) {
-            Text(text = topicName, color = "#ffffff", fontWeight = "bold", fontFamily = "Poppins", fontSize = 25.px)
             Text(
-                text = topicDesc, color = "#ffffff", fontSize = 18.px, fontFamily = "Poppins"
+                text = topicName,
+                color = Colors.Primary,
+                fontWeight = "bold",
+                fontFamily = "Poppins",
+                fontSize = 25.px
+            )
+            Text(
+                text = topicDesc, color = Colors.OnBackground, fontSize = 18.px, fontFamily = "Poppins"
             )
             Text(text = "\nFunction Signature:", color = "#ffffff", fontSize = 18.px, fontFamily = "Poppins")
             CustomCodeBlock(code = topicSignature)

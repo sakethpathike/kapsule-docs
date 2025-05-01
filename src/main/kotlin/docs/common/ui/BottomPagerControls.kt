@@ -1,5 +1,6 @@
 package io.github.sakethpathike.docs.common.ui
 
+import io.github.sakethpathike.docs.common.Colors
 import kotlinx.html.DIV
 import sakethh.kapsule.*
 import sakethh.kapsule.utils.*
@@ -33,16 +34,24 @@ fun DIV.BottomPagerControls(
 
 private fun DIV.BottomButton(label: String, text: String, onClick: () -> String) {
     Button(
-        modifier = Modifier().cursor(Cursor.Pointer).clip(shape = Shape.RoundedRectangle(12.px))
-            .backgroundColor("#d6d6d6").display(Display.InlineBlock), onClick = onClick
+        modifier = Modifier().cursor(Cursor.Pointer).border(radius = 15, color = Colors.primaryContainerDark)
+            .backgroundColor(Colors.ButtonContentColor).display(Display.InlineBlock), onClick = onClick
     ) {
         Column(modifier = Modifier().padding(5.px)) {
             Text(
-                text = label, fontFamily = "Poppins", color = "black", fontSize = 10.px, fontWeight = "0"
+                text = label,
+                fontFamily = "Poppins",
+                color = Colors.ButtonContainerColor,
+                fontSize = 10.px,
+                fontWeight = "0"
             )
 
             Text(
-                text = text, fontFamily = "Poppins", color = "black", fontSize = 15.px, fontWeight = "bold"
+                text = text,
+                fontFamily = "Poppins",
+                color = Colors.ButtonContainerColor,
+                fontSize = 15.px,
+                fontWeight = "bold"
             )
         }
     }

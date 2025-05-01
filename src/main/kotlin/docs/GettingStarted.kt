@@ -30,9 +30,10 @@ Well, that wasn’t quite the case when handling HTML sent from the server for s
                 Image(
                     alignment = ObjectPosition.Predefined.Top,
                     modifier = Modifier().border(radius = 15.px, color = Colors.primaryDark, width = 1.5.px)
-                        .width(450.px)
+                        .width(100.percent)
                         .clip(Shape.RoundedRectangle(15.px)),
-                    src = "https://i.ibb.co/TDT8Kzkp/tYzOOun.jpg"
+                    src = "/static/images/I_HAD_A_GODDAMNN_PLAN.jpg",
+                    id = "I_HAD_A_GODDAMNN_PLAN"
                 )
             }
             Text(

@@ -33,7 +33,27 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
             """
             overflow: hidden;
         """.trimIndent()
-        )
+        ), onTheHeadElement = {
+            unsafe {
+                raw(
+                    """
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                """.trimIndent()
+                )
+            }
+        }, onTheBodyElement = {
+            script(type = ScriptType.textJavaScript) {
+                unsafe {
+                    +"""
+      document.addEventListener("DOMContentLoaded", () => {
+        const el = document.getElementById("I_HAD_A_GODDAMNN_PLAN");
+        const isMobile = window.matchMedia("(max-width: 767px)").matches;
+        if (el) el.style.width = isMobile ? "100%" : "450px";
+      });
+      """.trimIndent()
+                }
+            }
+        }
     ) {
         Column(
             modifier = Modifier().custom(

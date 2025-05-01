@@ -22,7 +22,7 @@ repositories {
 
 ktor {
     fatJar {
-        archiveFileName.set("app.jar")
+        archiveFileName.set("kapsuleDocs.jar")
     }
 }
 

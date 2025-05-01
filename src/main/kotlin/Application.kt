@@ -76,6 +76,16 @@ fun Application.module() {
                 Heading(currentRoute = route)
             }
         }),
+        Route(route = "/components/Image", content = { htmlScope, route ->
+            with(htmlScope) {
+                Image(currentRoute = route)
+            }
+        }),
+        Route(route = "/components/StaggeredGrid", content = { htmlScope, route ->
+            with(htmlScope) {
+                StaggeredGrid(currentRoute = route)
+            }
+        }),
     )
 
     routing {

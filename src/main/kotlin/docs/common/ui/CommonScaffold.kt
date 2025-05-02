@@ -26,6 +26,16 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
         """.trimIndent()
     )
     Surface(
+        style = {
+            unsafe {
+                +"""
+                    ::selection {
+                      background: ${Colors.primaryDark};
+                      color: ${Colors.onPrimaryDark};
+                    }
+                    """.trimIndent()
+            }
+        },
         fonts = listOf(
             "https://fonts.googleapis.com/icon?family=Material+Icons",
             "https://fonts.googleapis.com/css2?family=Inter&family=JetBrains+Mono&family=Megrim&display=swap"

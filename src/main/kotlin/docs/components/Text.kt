@@ -19,7 +19,7 @@ fun HTML.Text(currentRoute: String) {
     onThisElement: DIV.() -> Unit = {},
     modifier: Modifier = Modifier()
 )""".trimIndent(),
-        paramsExplanation = """<ul"><li>${Codeblock("text")}: Content string rendered inside a <code>&lt;div&gt;</code></li>  
+        paramsExplanation = """<ul><li>${Codeblock("text")}: Content string rendered inside a <code>&lt;div&gt;</code></li>  
   <li>${Codeblock("fontSize")}: Text size (default: "12px"). Accepts CSS units like "em" or "rem"</li>  
   <li>${Codeblock("fontFamily")}: Typeface name (e.g., "Arial") or browser default</li>  
   <li>${Codeblock("color")}: Text color using names, hex codes, or RGB values</li>  

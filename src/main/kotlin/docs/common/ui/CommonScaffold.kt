@@ -46,9 +46,20 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                 unsafe {
                     +"""
       document.addEventListener("DOMContentLoaded", () => {
-        const el = document.getElementById("I_HAD_A_GODDAMNN_PLAN");
+        const I_HAD_A_GODDAMNN_PLAN = document.getElementById("I_HAD_A_GODDAMNN_PLAN");
         const isMobile = window.matchMedia("(max-width: 767px)").matches;
-        if (el) el.style.width = isMobile ? "100%" : "450px";
+        
+        const topicPanel = document.getElementById("topics-panel")
+        if(isMobile){
+            kapsuleExpandEmoji.textContent = "arrow_right";
+            topicPanel.style.display = "none";
+            topicPanel.style.width = "100vw";
+        }else{
+            kapsuleExpandEmoji.textContent = "arrow_left";
+            topicPanel.style.display = "block";
+        }
+        
+        if (I_HAD_A_GODDAMNN_PLAN) I_HAD_A_GODDAMNN_PLAN.style.width = isMobile ? "100%" : "450px";
       });
       """.trimIndent()
                 }

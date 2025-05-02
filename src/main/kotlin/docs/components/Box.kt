@@ -15,16 +15,7 @@ fun HTML.Box(currentRoute: String) {
     onThisElement: DIV.() -> Unit = {},
     id: String? = null,
     init: DIV.() -> Unit
-) {
-    div(classes = className) {
-        if (id != null) {
-            this.id = id
-        }
-        style = modifier.buildStyle()
-        onThisElement()
-        init()
-    }
-}""".trimIndent(),
+)""".trimIndent(),
         exampleCodeForCurrentTopic = "",
         paramsExplanation = """<ul><li>${Codeblock("modifier")}: Builds inline CSS styles for the <code>div</code> (padding, margin, flex properties)</li>  
   <li>${Codeblock("className")}: Optional CSS class for the container <code>div</code></li>  

@@ -123,12 +123,11 @@ Add the following to your <code>build.gradle.kts</code> <strong>dependencies</st
                 this.body() ?: "0.0.4"
             }.substringAfter("<latest>").substringBefore("</latest>")*/
 
-            Row(
-                verticalAlignment = VerticalAlignment.SpaceBetween,
-                horizontalAlignment = HorizontalAlignment.Center,
+            Column(
+                horizontalAlignment = HorizontalAlignment.Start,
                 modifier = Modifier().margin(top = 10.px, bottom = 30.px).padding(10.px)
                     .backgroundColor(Colors.surfaceContainerHighDarkHighContrast)
-                    .border(15, color = Colors.surfaceContainerHighDarkHighContrast)
+                    .clip(shape = Shape.RoundedRectangle(cornerRadius = 10.px), overflow = Overflow.Clip)
             ) {
                 val kapsuleDependency = "io.github.sakethpathike:kapsule:${latestkapsuleVersion.trim()}"
                 Text(
@@ -136,6 +135,10 @@ Add the following to your <code>build.gradle.kts</code> <strong>dependencies</st
                     modifier = Modifier(), text = """
                     implementation("$kapsuleDependency")
                     """.trimIndent(), color = Colors.onSurfaceDark, fontSize = 18.px, fontFamily = "Jetbrains Mono"
+                )
+                Spacer(
+                    modifier = Modifier().fillMaxWidth().margin(top = 15.px, bottom = 15.px).height(2.px)
+                        .backgroundColor(Colors.outlineDark).opacity(0.5).clip(shape = Shape.RoundedRectangle(cornerRadius = 10.px))
                 )
                 span(classes = "material-icons"){
                     id = "componentsExpandEmoji"

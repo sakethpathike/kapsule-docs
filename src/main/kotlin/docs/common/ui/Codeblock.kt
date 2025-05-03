@@ -1,11 +1,8 @@
 package io.github.sakethpathike.docs.common.ui
 
 import io.github.sakethpathike.docs.common.Colors
-import kotlinx.html.*
-import sakethh.kapsule.Column
-import sakethh.kapsule.Modifier
-import sakethh.kapsule.Spacer
-import sakethh.kapsule.Text
+import kotlinx.html.DIV
+import sakethh.kapsule.*
 import sakethh.kapsule.utils.*
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
@@ -40,14 +37,12 @@ fun DIV.CustomCodeBlock(code: String, codeBlockId: String = Uuid.random().toStri
                 .backgroundColor(Colors.outlineDark).opacity(0.5)
                 .clip(shape = Shape.RoundedRectangle(cornerRadius = 10.px))
         )
-        span(classes = "material-icons") {
-            id = "componentsExpandEmoji"
-            style = Modifier().custom(
+        MaterialIcon(
+            iconCode = "content_copy", modifier = Modifier().custom(
                 """
                                 font-size: 20px
                             """.trimIndent()
-            ).cursor(Cursor.Pointer).color(Colors.onSurfaceDark).buildStyle()
-
+            ).cursor(Cursor.Pointer).color(Colors.onSurfaceDark),
             onClick = """
   const div = document.getElementById('${codeBlockId}');
   const textToCopy = div.textContent;
@@ -70,10 +65,7 @@ fun DIV.CustomCodeBlock(code: String, codeBlockId: String = Uuid.random().toStri
       alert('Fallback copy failed: ' + err);
     }
     document.body.removeChild(textarea);
-  }
-
-                        """.trimIndent()
-            +"content_copy"
-        }
+  }""".trimIndent()
+        )
     }
 }

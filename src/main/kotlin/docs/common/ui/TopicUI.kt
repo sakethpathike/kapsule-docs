@@ -70,7 +70,7 @@ fun HTML.TopicUI(
 
                 CustomCodeBlock(code = exampleCodeForCurrentTopic)
 
-                if (topicName != "Box") {
+                if (topicName !in listOf("Surface", "Box")) {
                     Text(
                         text = "Resulting Web View:",
                         color = Colors.onSurfaceDark,

@@ -151,7 +151,7 @@ fun Application.module() {
                                 fontFamily = "KingDisease404",
                                 color = "white",
                                 fontSize = 75.px,
-                                fontWeight = 45.px
+                                fontWeight = FontWeight.Predefined.Bold
                             )
                             Spacer(modifier = Modifier().height(50.px).fillMaxWidth())
                             Text(

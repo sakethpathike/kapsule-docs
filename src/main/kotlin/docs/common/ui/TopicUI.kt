@@ -7,6 +7,7 @@ import kotlinx.html.IframeSandbox
 import kotlinx.html.iframe
 import kotlinx.html.style
 import sakethh.kapsule.*
+import sakethh.kapsule.utils.FontWeight
 import sakethh.kapsule.utils.px
 
 fun HTML.TopicUI(
@@ -35,7 +36,7 @@ fun HTML.TopicUI(
             Text(
                 text = topicName,
                 color = Colors.Primary,
-                fontWeight = "bold",
+                fontWeight = FontWeight.Predefined.Bold,
                 fontFamily = "Inter",
                 fontSize = 25.px
             )
@@ -75,7 +76,7 @@ fun HTML.TopicUI(
                     color = Colors.onSurfaceDark,
                     fontSize = 18.px,
                     fontFamily = "Inter",
-                    fontWeight = "bold"
+                    fontWeight = FontWeight.Predefined.Bold
                 )
                 Box(modifier = Modifier()) {
                     Spacer(

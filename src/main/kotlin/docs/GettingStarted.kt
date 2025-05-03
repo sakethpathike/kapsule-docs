@@ -66,7 +66,7 @@ Well, that wasn’t quite the case when handling HTML sent from the server for s
                 text = "When to use kapsule?", color = Colors.primaryDark,
                 fontSize = 24.px,
                 fontFamily = "Inter",
-                fontWeight = "bold",
+                fontWeight = FontWeight.Predefined.Bold,
                 modifier = Modifier().margin(top = 10.px, bottom = 10.px)
             )
             listOf(
@@ -84,7 +84,7 @@ Well, that wasn’t quite the case when handling HTML sent from the server for s
             Text(
                 text = "Not a fullstack framework", color = Colors.primaryDark,
                 fontSize = 24.px,
-                fontFamily = "Inter", fontWeight = "bold",
+                fontFamily = "Inter", fontWeight = FontWeight.Predefined.Bold,
                 modifier = Modifier().margin(top = 15.px, bottom = 10.px)
             )
             Text(
@@ -97,7 +97,7 @@ Well, that wasn’t quite the case when handling HTML sent from the server for s
                 text = "Compose-style not Compose-behavior", color = Colors.primaryDark,
                 fontSize = 24.px,
                 fontFamily = "Inter",
-                fontWeight = "bold",
+                fontWeight = FontWeight.Predefined.Bold,
                 modifier = Modifier().margin(top = 15.px, bottom = 10.px)
             )
             Text(
@@ -109,7 +109,7 @@ Well, that wasn’t quite the case when handling HTML sent from the server for s
             Text(
                 text = "Adding dependency", color = Colors.primaryDark,
                 fontSize = 24.px,
-                fontFamily = "Inter", fontWeight = "bold",
+                fontFamily = "Inter", fontWeight = FontWeight.Predefined.Bold,
                 modifier = Modifier().margin(top = 15.px, bottom = 10.px)
             )
             Text(

@@ -41,7 +41,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
             }
         },
         fonts = listOf(
-            "https://fonts.googleapis.com/icon?family=Material+Icons",
+                "https://fonts.googleapis.com/icon?family=Material+Icons",
             "https://fonts.googleapis.com/css2?family=Inter&family=JetBrains+Mono&family=Megrim&display=swap"
         ), modifier = Modifier().padding(0.px).margin(0).backgroundColor(Colors.Background).custom(
             """
@@ -120,7 +120,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                             fontFamily = "Megrim",
                             color = Colors.TopAppBarTitleContentColor,
                             fontSize = 25.px,
-                            fontWeight = "bold"
+                            fontWeight = FontWeight.Predefined.Bold
                         )
                         val kapsuleVersion = HttpClient.newHttpClient().send(
                             HttpRequest.newBuilder().GET()
@@ -136,7 +136,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                             fontFamily = "Inter",
                             color = Colors.TopAppBarTitleContentColor,
                             fontSize = 14.px,
-                            fontWeight = "light"
+                            fontWeight = FontWeight.Predefined.Light
                         )
                     }
 
@@ -159,7 +159,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                     }
                     Spacer(modifier = Modifier().width(5.px))
                     Text(
-                        text = " on Github", fontFamily = "Inter", fontWeight = "bold", color = Colors.TopAppBarTitleContentColor,
+                        text = " on Github", fontFamily = "Inter", fontWeight = FontWeight.Predefined.Bold, color = Colors.TopAppBarTitleContentColor,
                         fontSize = 14.px,
                     )
                     Spacer(modifier = Modifier().width(5.px))
@@ -214,7 +214,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                     Text(
                         text = "Components",
                         fontSize = 20.px,
-                        fontWeight = "bold",
+                        fontWeight = FontWeight.Predefined.Bold,
                         fontFamily = "Inter", color = Colors.NavbarSelectedTextColor
                     )
                 }

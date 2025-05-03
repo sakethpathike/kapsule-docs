@@ -6,9 +6,13 @@ import kotlinx.html.HTML
 
 fun HTML.Surface(currentRoute: String) {
     TopicUI(
-        currentRoute = currentRoute,
-        topicName = "Surface",
-        topicDesc = "<strong>Surface</strong> is where you start building your web page with Kapsule. It's like the main function in an app. It sets up the basic structure of the page, including the <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> sections, and lets you add your content inside.",
+        currentRoute = currentRoute, topicName = "Surface", topicDesc = """
+              <strong>Surface</strong> is where you start building your web page with Kapsule. It’s like the <code>main</code> function in an app. It sets up the basic structure of the page, including the <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> sections, and lets you add your content inside.
+              
+              Before using <code>Surface</code>, you must call <code>createHTML().html { ... }</code> to provide the necessary HTML scope in which <code>Surface</code> operates.
+       
+         If you're using the ${Codeblock("MaterialIcon")} element, you must include <code>"https://fonts.googleapis.com/icon?family=Material+Icons"</code> in the <code>fonts</code> list passed to <code>Surface</code> so that the icons load properly.
+          """.trimIndent(),
         topicSignature = """
             fun HTML.Surface(
                 modifier: Modifier = Modifier(),
@@ -32,42 +36,33 @@ fun HTML.Surface(currentRoute: String) {
 </ul>  
 """.trimIndent(),
         exampleCodeForCurrentTopic = """
-                <pre>Surface(
-    fonts =
-        listOf(
-            "https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter&family=JetBrains+Mono&display=swap"
-        ),
-    modifier =
-        Modifier()
-            .padding(0.px)
-            .margin(0)
-            .backgroundColor("#292929")
-            .custom(
-                ""${'"'}
-            overflow: hidden;
+                <pre>createHTML().html {
+        Surface(
+            fonts = listOf(
+                "https://fonts.googleapis.com/css2?family=family=Inter&family=JetBrains+Mono&display=swap"
+            ), modifier = Modifier().padding(0.px).margin(0).backgroundColor("#292929").custom(
+                ""${'"'} overflow : hidden
         ""${'"'}.trimIndent()
             )
-) {
-    Column(
-        modifier =
-            Modifier()
-                .custom(
-                    ""${'"'}
-                top:0;
-            ""${'"'}.trimIndent()
-                )
-                .position(Position.Sticky)
-                .zIndex(1000)
-    ) {
-        Row(
-            modifier = Modifier().fillMaxWidth().height(65.px).backgroundColor("#1b1b1b"),
-            verticalAlignment = VerticalAlignment.SpaceBetween,
-            horizontalAlignment = HorizontalAlignment.Center
         ) {
-            // <i>code</i>
+            Column(
+                modifier = Modifier().custom(
+                    ""${'"'} top :0
+        ""${'"'}.trimIndent()
+                ).position(Position.Sticky).zIndex(1000)
+            ) {
+                Row(
+                    modifier = Modifier().fillMaxWidth().height(65.px).backgroundColor("#1b1b1b"),
+                    verticalAlignment = VerticalAlignment.SpaceBetween,
+                    horizontalAlignment = HorizontalAlignment.Center
+                ) {
+                    // <i>code</i>
+                }
+            }
         }
-    }
-}</pre>""".trimIndent(),
+    }.let {
+        println(it)
+    }</pre>""".trimIndent(),
         showPreviousBtn = true,
         showNextBtn = true,
         onPreviousBtnClick = {

@@ -7,6 +7,7 @@ import sakethh.kapsule.Row
 import sakethh.kapsule.Spacer
 import sakethh.kapsule.Text
 import sakethh.kapsule.utils.Cursor
+import sakethh.kapsule.utils.FontWeight
 import sakethh.kapsule.utils.HorizontalAlignment
 import sakethh.kapsule.utils.Shape
 import sakethh.kapsule.utils.px
@@ -33,7 +34,7 @@ fun DIV.SidebarSelectableTextComponent(selected: Boolean, text: String, onThisEl
             Text(
                 text = Typography.bullet.toString(),
                 fontSize = 16.px,
-                fontWeight = "regular",
+                fontWeight = FontWeight.Custom("regular"),
                 fontFamily = "Inter",
                 color = Colors.NavbarSelectedTextColor,
                 modifier = Modifier().margin(end = 5.px),
@@ -43,7 +44,7 @@ fun DIV.SidebarSelectableTextComponent(selected: Boolean, text: String, onThisEl
             modifier = Modifier().margin(end = 15.px),
             text = text,
             fontSize = 16.px,
-            fontWeight = if (selected) "bold" else "regular",
+            fontWeight = if (selected) FontWeight.Predefined.Bold else FontWeight.Custom("regular"),
             fontFamily = "Inter",
             color = Colors.NavbarSelectedTextColor
         )

@@ -50,7 +50,7 @@ private fun DIV.BottomButton(label: String, text: String, onClick: () -> String)
                 fontFamily = "Inter",
                 color = Colors.ButtonContainerColor,
                 fontSize = 18.px,
-                fontWeight = "bold"
+                fontWeight = FontWeight.Predefined.Bold
             )
         }
     }

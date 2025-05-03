@@ -26,7 +26,7 @@ fun HTML.GettingStarted(currentRoute: String) {
                 text = """
             <strong>Jetpack Compose's declarative approach</strong> with <strong>Kotlin DSL</strong> is one of my best experiences writing Compose/Kotlin code.
 
-Well, that wasn’t quite the case when handling HTML sent from the server for simple static sites like the one you’re currently on. <code>kotlinx.html</code> solves this, but since I'm more familiar with <strong>Compose</strong>, <a style = "color: ${Colors.primaryDark};" href="https://github.com/sakethpathike">I</a> thought <em>a library should just do this</em>. Some solutions like <strong>Kobweb</strong> and <strong>Kweb</strong> are quite heavy/full-stack-based, rather than just HTML generation.
+Well, that wasn’t quite the case when handling HTML sent from the server for simple static sites like the one you’re currently on. <code>kotlinx.html</code> solves this, but since I'm more familiar with <strong>Compose</strong>, <a style = "color: ${Colors.primaryDark};" href="https://github.com/sakethpathike">I</a> thought <em>a library should just do this</em>.
 
 <strong>ANDDDD... <a style = "color: ${Colors.primaryDark};" href="https://github.com/sakethpathike">I</a> have a plan.</strong>
         """.trimIndent(), color = Colors.onSurfaceDark, fontSize = 18.px, fontFamily = "Inter"

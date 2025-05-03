@@ -17,7 +17,7 @@ fun Codeblock(code: String): String {
 fun DIV.CustomCodeBlock(code: String, codeBlockId: String = Uuid.random().toString()) {
     Column(
         horizontalAlignment = HorizontalAlignment.Start,
-        modifier = Modifier().margin(top = 10.px, bottom = 30.px).padding(10.px)
+        modifier = Modifier().margin(top = 10.px, bottom = 15.px).padding(10.px)
             .backgroundColor(Colors.surfaceContainerHighDarkHighContrast).clip(
                 overflow = Overflow.Clip,
                 shape = Shape.RoundedRectangle(

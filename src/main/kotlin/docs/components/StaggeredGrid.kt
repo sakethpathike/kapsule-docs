@@ -38,7 +38,6 @@ fun HTML.StaggeredGrid(currentRoute: String) {
                     "https://i.pinimg.com/474x/33/9f/d4/339fd4212cccd9902d9148eaa5d69ef9.jpg",
                     "https://i.pinimg.com/474x/88/66/2d/88662d39010f03ae12ddc6d63dea1184.jpg",
                     "https://i.pinimg.com/474x/9b/8e/a4/9b8ea43f6c3d46a155cb74846a1d24ab.jpg",
-                    "https://i.pinimg.com/474x/bb/49/9d/bb499de6de32f0d83a79f9fcd5fe6f0c.jpg",
                     "https://i.pinimg.com/736x/19/65/c6/1965c6557dea0404b79236bdc58ae3e9.jpg",
                 ).run { this + this + this }.forEach {
                     Image(

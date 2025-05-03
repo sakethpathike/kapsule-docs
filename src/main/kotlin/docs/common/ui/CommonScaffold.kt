@@ -4,6 +4,10 @@ import io.github.sakethpathike.docs.common.Colors
 import kotlinx.html.*
 import sakethh.kapsule.*
 import sakethh.kapsule.utils.*
+import java.net.URI
+import java.net.http.HttpClient
+import java.net.http.HttpRequest
+import java.net.http.HttpResponse
 
 fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
     val components = listOf(
@@ -109,13 +113,33 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                                 }""".trimIndent()
                         +"arrow_left"
                     }
-                    Text(
-                        modifier = userSelectMod,
-                        text = "kapsule",
-                        fontFamily = "Megrim", color = Colors.TopAppBarTitleContentColor,
-                        fontSize = 25.px,
-                        fontWeight = "bold"
-                    )
+                    Row {
+                        Text(
+                            modifier = userSelectMod,
+                            text = "kapsule",
+                            fontFamily = "Megrim",
+                            color = Colors.TopAppBarTitleContentColor,
+                            fontSize = 25.px,
+                            fontWeight = "bold"
+                        )
+                        val kapsuleVersion = HttpClient.newHttpClient().send(
+                            HttpRequest.newBuilder().GET()
+                                .uri(URI.create("https://repo1.maven.org/maven2/io/github/sakethpathike/kapsule/maven-metadata.xml"))
+                                .build(), HttpResponse.BodyHandlers.ofString()
+                        ).run {
+                            this.body() ?: "0.0.5"
+                        }.substringAfter("<latest>").substringBefore("</latest>")
+
+                        Text(
+                            modifier = userSelectMod.opacity(0.5),
+                            text = kapsuleVersion,
+                            fontFamily = "Inter",
+                            color = Colors.TopAppBarTitleContentColor,
+                            fontSize = 14.px,
+                            fontWeight = "light"
+                        )
+                    }
+
                 }
                 Row(
                     horizontalAlignment = HorizontalAlignment.Center,

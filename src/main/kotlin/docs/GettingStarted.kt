@@ -6,6 +6,10 @@ import io.github.sakethpathike.docs.common.ui.BottomPagerControls
 import kotlinx.html.*
 import sakethh.kapsule.*
 import sakethh.kapsule.utils.*
+import java.net.URI
+import java.net.http.HttpClient
+import java.net.http.HttpRequest
+import java.net.http.HttpResponse
 
 fun HTML.GettingStarted(currentRoute: String) {
     CommonScaffold(currentRoute = currentRoute) {
@@ -115,13 +119,13 @@ Add the following to your <code>build.gradle.kts</code> <strong>dependencies</st
                 fontFamily = "Inter"
             )
 
-            val latestkapsuleVersion = "0.0.4"/*HttpClient.newHttpClient().send(
+            val latestkapsuleVersion = HttpClient.newHttpClient().send(
                 HttpRequest.newBuilder().GET()
                     .uri(URI.create("https://repo1.maven.org/maven2/io/github/sakethpathike/kapsule/maven-metadata.xml"))
                     .build(), HttpResponse.BodyHandlers.ofString()
             ).run {
-                this.body() ?: "0.0.4"
-            }.substringAfter("<latest>").substringBefore("</latest>")*/
+                this.body() ?: "0.0.5"
+            }.substringAfter("<latest>").substringBefore("</latest>")
 
             Column(
                 horizontalAlignment = HorizontalAlignment.Start,

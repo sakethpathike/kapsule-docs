@@ -83,12 +83,12 @@ fun HTML.TopicUI(
                     )
                 }
                 CustomCodeBlock(code = exampleCodeForCurrentTopic)
-                Box(modifier = Modifier()) {
-                    Spacer(
-                        modifier = Modifier().height(15.px)
-                    )
-                }
                 if (topicName !in listOf("Surface", "Box")) {
+                    Box(modifier = Modifier()) {
+                        Spacer(
+                            modifier = Modifier().height(15.px)
+                        )
+                    }
                     Text(
                         text = "Resulting Web View:",
                         color = Colors.onSurfaceDark,
@@ -103,10 +103,10 @@ fun HTML.TopicUI(
                             .backgroundColor("white").buildStyle()
                         this.src = "/static/examples/${topicName}.html"
                     }
-                    Box(modifier = Modifier()) {
-                        Spacer(modifier = Modifier().height(25.px))
-                    }
                 }
+            }
+            Box(modifier = Modifier()) {
+                Spacer(modifier = Modifier().height(25.px))
             }
             BottomPagerControls(
                 showPreviousBtn = showPreviousBtn,

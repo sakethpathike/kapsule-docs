@@ -29,7 +29,13 @@ fun HTML.Image(currentRoute: String) {
   <li>${Codeblock("contentScale")}: Image fitting mode (Cover/Contain)</li>  
   <li>${Codeblock("alignment")}: Position within container (Top/Center/Bottom)</li>  
   <li>${Codeblock("onThisElement")}: Adds attributes to <code>&lt;img&gt;</code></li>  
-</ul>  """.trimIndent(), exampleCodeForCurrentTopic = "", onPreviousBtnClick = {
+</ul>  """.trimIndent(), exampleCodeForCurrentTopic = """Image(
+                    alignment = ObjectPosition.Predefined.Top,
+                    modifier = Modifier().border(radius = 15.px, color = "black", width = 1.5.px)
+                        .width(100.percent)
+                        .clip(Shape.RoundedRectangle(15.px)),
+                    src = "https://cdn.bsky.app/img/banner/plain/did:plc:wuiiyydvyak2oh3o66to73xf/bafkreic43a5mat62cb2uqa6yo6lstbxg2qj7fbkuetvveymvoxtof2z6oy@jpeg"
+                )""".trimIndent(), onPreviousBtnClick = {
         """
                         window.open("/components/Heading", "_self");
                     """.trimIndent()

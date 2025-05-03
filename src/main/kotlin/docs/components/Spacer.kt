@@ -20,7 +20,23 @@ fun HTML.Spacer(currentRoute: String) {
   <li>${Codeblock("onThisElement")}: Configure spacer <code>div</code> attributes/listeners</li>  
   <li>${Codeblock("modifier")}: Builds CSS styles (default: <code>display: inline-block</code>)</li>  
 </ul>  """.trimIndent(),
-        exampleCodeForCurrentTopic = "",
+        exampleCodeForCurrentTopic = """Surface {
+            Row {
+                Text(
+                    text = "Text 1",
+                    fontFamily = "Poppins",
+                    color = "black",
+                    fontWeight = "bold"
+                )
+                Spacer(modifier = Modifier().width(15.px))
+                Text(
+                    text = "Text 2",
+                    fontFamily = "Poppins",
+                    color = "black",
+                    fontWeight = "bold"
+                )
+            }
+        }""".trimIndent(),
         onPreviousBtnClick = {
             """
                         window.open("/components/Row", "_self");

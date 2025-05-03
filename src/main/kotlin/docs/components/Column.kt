@@ -26,7 +26,28 @@ fun HTML.Column(currentRoute: String) {
   <li>${Codeblock("content")}: Defines child components in the column</li>
 </ul>
                 """.trimIndent(),
-        exampleCodeForCurrentTopic = "",
+        exampleCodeForCurrentTopic = """Surface {
+            Column(
+                modifier = Modifier().fillMaxWidth(),
+                verticalAlignment = VerticalAlignment.Center,
+                horizontalAlignment = HorizontalAlignment.Center
+            ) {
+                Text(
+                    text = "Text 1",
+                    modifier = Modifier().margin(15.px),
+                    fontFamily = "Poppins",
+                    color = "black",
+                    fontWeight = "bold"
+                )
+                Text(
+                    text = "Text 2",
+                    modifier = Modifier().margin(15.px),
+                    fontFamily = "Poppins",
+                    color = "black",
+                    fontWeight = "bold"
+                )
+            }
+        }""".trimIndent(),
         showPreviousBtn = true,
         showNextBtn = true,
         onPreviousBtnClick = {

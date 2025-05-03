@@ -51,14 +51,17 @@ fun HTML.TopicUI(
                 text = paramsExplanation.trimIndent(), color = "#ffffff", fontSize = 18.px, fontFamily = "Inter"
             )
 
-            Text(
-                text = "Here's how you might use the ${Codeblock(topicName)} function",
-                color = "#ffffff",
-                fontSize = 18.px,
-                fontFamily = "Inter",
-                fontWeight = "bold"
-            )
-            CustomCodeBlock(code = exampleCodeForCurrentTopic)
+            if (exampleCodeForCurrentTopic.isNotBlank()) {
+                Text(
+                    text = "Here's how you might use the ${Codeblock(topicName)} function",
+                    color = "#ffffff",
+                    fontSize = 18.px,
+                    fontFamily = "Inter",
+                    fontWeight = "bold"
+                )
+
+                CustomCodeBlock(code = exampleCodeForCurrentTopic)
+            }
             BottomPagerControls(
                 showPreviousBtn = showPreviousBtn,
                 showNextBtn = showNextBtn,

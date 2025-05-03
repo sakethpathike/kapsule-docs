@@ -18,7 +18,21 @@ fun HTML.BreakFlow(currentRoute: String) {
     """.trimIndent(), paramsExplanation = """<ul><li>${Codeblock("onThisElement")}: Configures the <code>&lt;br&gt;</code> element directly</li>  
   <li>${Codeblock("className")}: Optional CSS class for the <code>&lt;br&gt;</code> tag</li>  
   <li>${Codeblock("id")}: Unique identifier for the <code>&lt;br&gt;</code> element</li>  
-</ul>""".trimIndent(), exampleCodeForCurrentTopic = "", onPreviousBtnClick = {
+</ul>""".trimIndent(), exampleCodeForCurrentTopic = """Surface {
+            Text(
+                text = "Text 1",
+                fontFamily = "Poppins",
+                color = "black",
+                fontWeight = "bold",
+            )
+            BreakFlow()
+            Text(
+                text = "Text 2",
+                fontFamily = "Poppins",
+                color = "black",
+                fontWeight = "bold",
+            )
+        }""".trimIndent(), onPreviousBtnClick = {
         """
                         window.open("/components/TextInputField", "_self");
                     """.trimIndent()

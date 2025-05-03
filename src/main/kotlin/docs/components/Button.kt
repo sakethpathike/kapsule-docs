@@ -26,7 +26,28 @@ fun HTML.Button(currentRoute: String) {
   <li>${Codeblock("onClick")}: Defines JavaScript click handler as a string</li>  
   <li>${Codeblock("content")}: Defines inner content (text/icons) within the <code>button</code></li>  
 </ul>""".trimIndent(),
-        exampleCodeForCurrentTopic = "",
+        exampleCodeForCurrentTopic = """Surface {
+            Column {
+                Text(
+                    text = "Text 1", fontFamily = "Poppins", color = "black", fontWeight = "bold", id = "text1"
+                )
+                Spacer(modifier = Modifier().height(15.px))
+                Button(
+                    modifier = Modifier().custom(
+                        ""${'"'}
+                        align-self:flex-start;
+                    ""${'"'}.trimIndent()
+                    ).border(radius = 15, color = "black"), onClick = {
+                        ""${'"'}
+                        document.getElementById("text1").textContent = "Text 2";
+                    ""${'"'}.trimIndent()
+                    }) {
+                    Text(
+                        text = "Change text", fontFamily = "Poppins", modifier = Modifier()
+                    )
+                }
+            }
+        }""".trimIndent(),
         onPreviousBtnClick = {
             """
                         window.open("/components/Box", "_self");

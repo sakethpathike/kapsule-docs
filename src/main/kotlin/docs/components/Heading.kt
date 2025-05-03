@@ -19,7 +19,13 @@ fun HTML.Heading(currentRoute: String) {
   <li>${Codeblock("className")}: Optional CSS class for the heading</li>  
   <li>${Codeblock("id")}: Unique identifier for the heading</li>  
   <li>${Codeblock("onThisElement")}: Adds attributes/elements to the heading tag</li>  
-</ul>  """.trimIndent(), exampleCodeForCurrentTopic = "", onPreviousBtnClick = {
+</ul>  """.trimIndent(),
+        exampleCodeForCurrentTopic = """Surface {
+            repeat(6) {
+                Heading(level = it + 1, text = "Heading $\{it + 1}")
+            }
+        }""".trimIndent(),
+        onPreviousBtnClick = {
         """
                         window.open("/components/BreakFlow", "_self");
                     """.trimIndent()

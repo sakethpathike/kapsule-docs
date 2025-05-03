@@ -31,7 +31,15 @@ fun HTML.Text(currentRoute: String) {
   <li>${Codeblock("onThisElement")}: Directly configures the wrapper <code>&lt;div&gt;</code></li>  
   <li>${Codeblock("modifier")}: Applies Kapsule styles to the wrapper <code>&lt;div&gt;</code></li>  
 </ul>  """.trimIndent(),
-        exampleCodeForCurrentTopic = "",
+        exampleCodeForCurrentTopic = """Surface {
+            Text(
+                text = "Text 1",
+                modifier = Modifier().margin(15.px),
+                fontFamily = "Poppins",
+                color = "black",
+                fontWeight = "bold"
+            )
+        }""".trimIndent(),
         showPreviousBtn = true,
         showNextBtn = true,
         onPreviousBtnClick = {

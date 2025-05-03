@@ -25,7 +25,28 @@ fun HTML.Row(currentRoute: String) {
               <li>${Codeblock("content")}: Child elements inside the <code>div</code></li>  
             </ul>
         """.trimIndent(),
-        exampleCodeForCurrentTopic = "",
+        exampleCodeForCurrentTopic = """Surface {
+            Row(
+                modifier = Modifier().fillMaxWidth(),
+                verticalAlignment = VerticalAlignment.SpaceBetween,
+                horizontalAlignment = HorizontalAlignment.Center
+            ) {
+                Text(
+                    text = "Text 1",
+                    modifier = Modifier().margin(15.px),
+                    fontFamily = "Poppins",
+                    color = "black",
+                    fontWeight = "bold"
+                )
+                Text(
+                    text = "Text 2",
+                    modifier = Modifier().margin(15.px),
+                    fontFamily = "Poppins",
+                    color = "black",
+                    fontWeight = "bold"
+                )
+            }
+        }""".trimIndent(),
         onPreviousBtnClick = {
             """
                         window.open("/components/Column", "_self");

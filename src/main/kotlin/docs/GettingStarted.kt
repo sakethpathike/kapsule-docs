@@ -42,7 +42,7 @@ Well, that wasn’t quite the case when handling HTML sent from the server for s
                 )
             }
             Text(
-                text = "<strong>Guess what?</strong> <em>Mine actually works</em> — unlike <strong>Vander Linde’s</strong>. This site’s built with <code>kapsule</code> \uD83E\uDD20",
+                text = "<strong>Guess what?</strong> <em>Mine actually works</em>. This site’s built with <code>kapsule</code> \uD83E\uDD20",
                 color = Colors.onSurfaceDark,
                 fontSize = 18.px,
                 fontFamily = "Inter"
@@ -189,6 +189,9 @@ Add the following to your <code>build.gradle.kts</code> <strong>dependencies</st
                         """.trimIndent()
                     +"content_copy"
                 }
+            }
+            Box(modifier = Modifier()) {
+                Spacer(modifier = Modifier().height(25.px))
             }
             BottomPagerControls(
                 showPreviousBtn = false,

@@ -34,7 +34,7 @@ fun HTML.Image(currentRoute: String) {
                     modifier = Modifier().border(radius = 15.px, color = "black", width = 1.5.px)
                         .width(100.percent)
                         .clip(Shape.RoundedRectangle(15.px)),
-                    src = "https://cdn.bsky.app/img/banner/plain/did:plc:wuiiyydvyak2oh3o66to73xf/bafkreic43a5mat62cb2uqa6yo6lstbxg2qj7fbkuetvveymvoxtof2z6oy@jpeg"
+                    src = "https://media-rockstargames-com.akamaized.net/mfe6/prod/__common/img/a5f10e6551f8214688a9600f50e5ad65.jpg?im=Resize=1920"
                 )""".trimIndent(), onPreviousBtnClick = {
         """
                         window.open("/components/Heading", "_self");

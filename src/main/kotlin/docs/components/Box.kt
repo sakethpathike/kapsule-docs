@@ -19,7 +19,7 @@ fun HTML.Box(currentRoute: String) {
         exampleCodeForCurrentTopic = "",
         paramsExplanation = """<ul><li>${Codeblock("modifier")}: Builds inline CSS styles for the <code>div</code> (padding, margin, flex properties)</li>  
   <li>${Codeblock("className")}: Optional CSS class for the container <code>div</code></li>  
-  <li>${Codeblock("onThisElement")}: Adds attributes/event listeners to the <code>div</code></li>  
+  <li>${Codeblock("onThisElement")}: lets you interact with the element's scope beyond what kapsule directly offers</li>  
   <li>${Codeblock("id")}: Unique identifier for the <code>div</code></li>  
   <li>${Codeblock("init")}: Defines nested content inside the <code>div</code></li>  
 </ul>  """.trimIndent(),

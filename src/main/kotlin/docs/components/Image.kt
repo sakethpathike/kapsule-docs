@@ -28,7 +28,7 @@ fun HTML.Image(currentRoute: String) {
   <li>${Codeblock("className")}: CSS class for the <code>&lt;img&gt;</code></li>  
   <li>${Codeblock("contentScale")}: Image fitting mode (Cover/Contain)</li>  
   <li>${Codeblock("alignment")}: Position within container (Top/Center/Bottom)</li>  
-  <li>${Codeblock("onThisElement")}: Adds attributes to <code>&lt;img&gt;</code></li>  
+  <li>${Codeblock("onThisElement")}: lets you interact with the element's scope beyond what kapsule directly offers</li>  
 </ul>  """.trimIndent(), exampleCodeForCurrentTopic = """Image(
                     alignment = ObjectPosition.Predefined.Top,
                     modifier = Modifier().border(radius = 15.px, color = "black", width = 1.5.px)

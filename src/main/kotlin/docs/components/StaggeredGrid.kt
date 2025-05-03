@@ -23,7 +23,7 @@ fun HTML.StaggeredGrid(currentRoute: String) {
               <li>${Codeblock("columnGap")}: Space between columns (default: 16px)</li>  
               <li>${Codeblock("className")}: CSS class for the container <code>&lt;div&gt;</code></li>  
               <li>${Codeblock("id")}: Unique ID for the grid container</li>  
-              <li>${Codeblock("onThisElement")}: Adds attributes/configurations to the container</li>  
+              <li>${Codeblock("onThisElement")}: lets you interact with the element's scope beyond what kapsule directly offers</li>  
               <li>${Codeblock("content")}: Items to display in the staggered grid</li>  
             </ul>""".trimIndent(),
         exampleCodeForCurrentTopic = """Surface {

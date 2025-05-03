@@ -25,7 +25,7 @@ fun HTML.TextInputField(currentRoute: String) {
   <li>${Codeblock("fontSize")}: CSS <code>font-size</code> (e.g., "16px")</li>  
   <li>${Codeblock("fontFamily")}: CSS <code>font-family</code> (e.g., "Inter")</li>  
   <li>${Codeblock("modifier")}: Applies layout styles (padding, margin, background)</li>  
-  <li>${Codeblock("onThisElement")}: Adds attributes like <code>placeholder</code> or <code>disabled</code></li>  
+  <li>${Codeblock("onThisElement")}: lets you interact with the element's scope beyond what kapsule directly offers</li>  
 </ul>  """.trimIndent(), exampleCodeForCurrentTopic = """Surface {
             Column {
                 TextInputField(

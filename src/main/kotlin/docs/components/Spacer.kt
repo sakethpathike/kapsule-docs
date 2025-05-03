@@ -17,7 +17,7 @@ fun HTML.Spacer(currentRoute: String) {
 )""".trimIndent(),
         paramsExplanation = """<ul class><li>${Codeblock("className")}: CSS class for spacer <code>div</code></li>  
   <li>${Codeblock("id")}: Unique identifier for spacer <code>div</code></li>  
-  <li>${Codeblock("onThisElement")}: Configure spacer <code>div</code> attributes/listeners</li>  
+  <li>${Codeblock("onThisElement")}: lets you interact with the element's scope beyond what kapsule directly offers</li>  
   <li>${Codeblock("modifier")}: Builds CSS styles (default: <code>display: inline-block</code>)</li>  
 </ul>  """.trimIndent(),
         exampleCodeForCurrentTopic = """Surface {

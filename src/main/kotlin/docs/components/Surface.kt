@@ -26,8 +26,8 @@ fun HTML.Surface(currentRoute: String) {
   <li>${Codeblock("style")}: Defines CSS styles in a <code>&lt;style&gt;</code> tag using <code>STYLE</code> class properties</li>  
   <li>${Codeblock("className")}: Sets <code>class</code> attribute for <code>&lt;body&gt;</code> (optional)</li>  
   <li>${Codeblock("id")}: Sets unique <code>id</code> for <code>&lt;body&gt;</code> (optional)</li>  
-  <li>${Codeblock("onTheHeadElement")}: Adds elements (<code>&lt;meta&gt;</code>, <code>&lt;title&gt;</code>) to <code>&lt;head&gt;</code></li>  
-  <li>${Codeblock("onTheBodyElement")}: Configures attributes for <code>&lt;body&gt;</code></li>  
+  <li>${Codeblock("onTheHeadElement")}: lets you interact with the head's scope beyond what kapsule directly offers</li>  
+  <li>${Codeblock("onTheBodyElement")}: lets you interact with the body's scope beyond what kapsule directly offers</li>  
   <li>${Codeblock("content")}: Main page content rendered inside <code>&lt;body&gt;</code></li>  
 </ul>  
 """.trimIndent(),

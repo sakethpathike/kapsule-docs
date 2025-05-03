@@ -21,7 +21,7 @@ fun HTML.Row(currentRoute: String) {
               <li>${Codeblock("horizontalAlignment")}: Child spacing <em>horizontally</em> (Start/SpaceBetween/etc)</li>  
               <li>${Codeblock("className")}: Optional CSS class for the <code>div</code></li>  
               <li>${Codeblock("id")}: Unique identifier for the <code>div</code></li>  
-              <li>${Codeblock("onThisElement")}: Add attributes/listeners to the <code>div</code></li>  
+              <li>${Codeblock("onThisElement")}: lets you interact with the element's scope beyond what kapsule directly offers</li>  
               <li>${Codeblock("content")}: Child elements inside the <code>div</code></li>  
             </ul>
         """.trimIndent(),

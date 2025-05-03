@@ -21,7 +21,7 @@ fun HTML.Button(currentRoute: String) {
         """.trimIndent(),
         paramsExplanation = """<ul><li>${Codeblock("modifier")}: Applies CSS styles to the <code>button</code> (padding, background, etc.)</li>  
   <li>${Codeblock("className")}: Optional CSS class for the <code>button</code></li>  
-  <li>${Codeblock("onThisElement")}: Adds attributes/event listeners to the <code>button</code></li>  
+  <li>${Codeblock("onThisElement")}: lets you interact with the element's scope beyond what kapsule directly offers</li>  
   <li>${Codeblock("id")}: Unique identifier for the <code>button</code></li>  
   <li>${Codeblock("onClick")}: Defines JavaScript click handler as a string</li>  
   <li>${Codeblock("content")}: Defines inner content (text/icons) within the <code>button</code></li>  

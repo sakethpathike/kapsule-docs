@@ -22,7 +22,7 @@ fun HTML.Column(currentRoute: String) {
   <li>${Codeblock("horizontalAlignment")}: Controls <em>horizontal arrangement</em> of children</li>
   <li>${Codeblock("className")}: Adds CSS class to the container <code>div</code></li>
   <li>${Codeblock("id")}: Sets DOM identifier for the <code>div</code></li>
-  <li>${Codeblock("onThisElement")}: Directly configures the container <code>div</code></li>
+  <li>${Codeblock("onThisElement")}: lets you interact with the element's scope beyond what kapsule directly offers</li>
   <li>${Codeblock("content")}: Defines child components in the column</li>
 </ul>
                 """.trimIndent(),

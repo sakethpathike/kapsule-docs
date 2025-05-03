@@ -15,7 +15,7 @@ fun HTML.BreakFlow(currentRoute: String) {
             className: String? = null,
             id: String? = null
         )
-    """.trimIndent(), paramsExplanation = """<ul><li>${Codeblock("onThisElement")}: Configures the <code>&lt;br&gt;</code> element directly</li>  
+    """.trimIndent(), paramsExplanation = """<ul><li>${Codeblock("onThisElement")}: lets you interact with the element's scope beyond what kapsule directly offers</li>  
   <li>${Codeblock("className")}: Optional CSS class for the <code>&lt;br&gt;</code> tag</li>  
   <li>${Codeblock("id")}: Unique identifier for the <code>&lt;br&gt;</code> element</li>  
 </ul>""".trimIndent(), exampleCodeForCurrentTopic = """Surface {

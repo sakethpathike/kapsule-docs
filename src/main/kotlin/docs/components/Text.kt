@@ -28,7 +28,7 @@ fun HTML.Text(currentRoute: String) {
   <li>${Codeblock("className")}: Optional CSS class for the wrapper <code>&lt;div&gt;</code></li>  
   <li>${Codeblock("id")}: Unique identifier for the wrapper <code>&lt;div&gt;</code></li>  
   <li>${Codeblock("textAlign")}: Horizontal alignment (<code>TextAlign.Start</code>, <code>TextAlign.Center</code>)</li>  
-  <li>${Codeblock("onThisElement")}: Directly configures the wrapper <code>&lt;div&gt;</code></li>  
+  <li>${Codeblock("onThisElement")}: lets you interact with the element's scope beyond what kapsule directly offers</li>  
   <li>${Codeblock("modifier")}: Applies Kapsule styles to the wrapper <code>&lt;div&gt;</code></li>  
 </ul>  """.trimIndent(),
         exampleCodeForCurrentTopic = """Surface {

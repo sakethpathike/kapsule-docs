@@ -18,7 +18,7 @@ fun HTML.Heading(currentRoute: String) {
   <li>${Codeblock("text")}: Visible heading content</li>  
   <li>${Codeblock("className")}: Optional CSS class for the heading</li>  
   <li>${Codeblock("id")}: Unique identifier for the heading</li>  
-  <li>${Codeblock("onThisElement")}: Adds attributes/elements to the heading tag</li>  
+  <li>${Codeblock("onThisElement")}: lets you interact with the element's scope beyond what kapsule directly offers</li>  
 </ul>  """.trimIndent(),
         exampleCodeForCurrentTopic = """Surface {
             repeat(6) {

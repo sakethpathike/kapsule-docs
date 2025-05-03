@@ -46,7 +46,17 @@ fun HTML.TopicUI(
                 text = topicDesc, color = Colors.OnBackground, fontSize = 18.px, fontFamily = "Inter"
             )
             Text(text = "\nFunction Signature:", color = Colors.onSurfaceDark, fontSize = 18.px, fontFamily = "Inter")
+            Box(modifier = Modifier()) {
+                Spacer(
+                    modifier = Modifier().height(15.px)
+                )
+            }
             CustomCodeBlock(code = topicSignature)
+            Box(modifier = Modifier()) {
+                Spacer(
+                    modifier = Modifier().height(15.px)
+                )
+            }
             Text(
                 text = """
                 <b>Parameters</b>:
@@ -67,9 +77,17 @@ fun HTML.TopicUI(
                     fontFamily = "Inter",
                     fontWeight = "bold"
                 )
-
+                Box(modifier = Modifier()) {
+                    Spacer(
+                        modifier = Modifier().height(15.px)
+                    )
+                }
                 CustomCodeBlock(code = exampleCodeForCurrentTopic)
-
+                Box(modifier = Modifier()) {
+                    Spacer(
+                        modifier = Modifier().height(15.px)
+                    )
+                }
                 if (topicName !in listOf("Surface", "Box")) {
                     Text(
                         text = "Resulting Web View:",

@@ -5,6 +5,7 @@ import io.github.sakethpathike.docs.common.Colors
 import io.github.sakethpathike.docs.common.ui.BottomPagerControls
 import kotlinx.html.*
 import sakethh.kapsule.*
+import sakethh.kapsule.Modifier
 import sakethh.kapsule.utils.*
 import java.net.URI
 import java.net.http.HttpClient
@@ -118,7 +119,11 @@ Add the following to your <code>build.gradle.kts</code> <strong>dependencies</st
                 fontSize = 18.px,
                 fontFamily = "Inter"
             )
-
+            Box(modifier = Modifier()) {
+                Spacer(
+                    modifier = Modifier().height(15.px)
+                )
+            }
             val latestkapsuleVersion = HttpClient.newHttpClient().send(
                 HttpRequest.newBuilder().GET()
                     .uri(URI.create("https://repo1.maven.org/maven2/io/github/sakethpathike/kapsule/maven-metadata.xml"))
@@ -128,15 +133,20 @@ Add the following to your <code>build.gradle.kts</code> <strong>dependencies</st
             }.substringAfter("<latest>").substringBefore("</latest>")
 
             Column(
-                horizontalAlignment = HorizontalAlignment.Start,
-                modifier = Modifier().margin(top = 10.px, bottom = 30.px).padding(10.px)
+                modifier = Modifier().padding(1.em)
                     .backgroundColor(Colors.surfaceContainerHighDarkHighContrast)
-                    .clip(shape = Shape.RoundedRectangle(cornerRadius = 10.px), overflow = Overflow.Clip)
+                    .borderRadius(10.px)
             ) {
                 val kapsuleDependency = "io.github.sakethpathike:kapsule:${latestkapsuleVersion.trim()}"
                 Text(
                     id = "dependency",
-                    modifier = Modifier(), text = """
+                    modifier = Modifier().custom(
+                        """
+                    overflow-x: auto;
+                    overflow-y: hidden; 
+                    white-space: pre; 
+            """.trimIndent()
+                    ), text = """
                     implementation("$kapsuleDependency")
                     """.trimIndent(), color = Colors.onSurfaceDark, fontSize = 18.px, fontFamily = "Jetbrains Mono"
                 )

@@ -3,7 +3,10 @@ package io.github.sakethpathike.docs.common.ui
 import io.github.sakethpathike.docs.common.Colors
 import kotlinx.html.DIV
 import sakethh.kapsule.*
-import sakethh.kapsule.utils.*
+import sakethh.kapsule.utils.Cursor
+import sakethh.kapsule.utils.Shape
+import sakethh.kapsule.utils.em
+import sakethh.kapsule.utils.px
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
@@ -16,21 +19,22 @@ fun Codeblock(code: String): String {
 @OptIn(ExperimentalUuidApi::class)
 fun DIV.CustomCodeBlock(code: String, codeBlockId: String = Uuid.random().toString()) {
     Column(
-        horizontalAlignment = HorizontalAlignment.Start,
-        modifier = Modifier().margin(top = 10.px, bottom = 15.px).padding(10.px)
-            .backgroundColor(Colors.surfaceContainerHighDarkHighContrast).clip(
-                overflow = Overflow.Clip,
-                shape = Shape.RoundedRectangle(
-                    10.px
-                )
-            )
+        modifier = Modifier().padding(1.em).borderRadius(10.px)
+            .backgroundColor(Colors.surfaceContainerHighDarkHighContrast)
     ) {
         Text(
             id = codeBlockId,
             text = "<pre>${code.trim()}</pre>",
             color = Colors.onSurfaceDark,
             fontSize = 18.px,
-            fontFamily = "JetBrains Mono"
+            fontFamily = "JetBrains Mono",
+            modifier = Modifier().custom(
+                """
+                    overflow-x: auto;
+                    overflow-y: hidden; 
+                    white-space: pre; 
+            """.trimIndent()
+            )
         )
         Spacer(
             modifier = Modifier().fillMaxWidth().margin(top = 15.px, bottom = 15.px).height(2.px)

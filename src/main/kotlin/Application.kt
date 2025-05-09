@@ -103,7 +103,7 @@ fun Application.module() {
             handle {
                 call.respondText(contentType = ContentType.Text.Html, text = createHTML().html {
                     Surface(
-                        modifier = Modifier().backgroundColor("#1b1b1b"),
+                        modifier = Modifier.backgroundColor("#1b1b1b"),
                         onTheHeadElement = {
                             unsafe {
                                 raw(
@@ -127,7 +127,7 @@ fun Application.module() {
                         }
                     ) {
                         Column(
-                            modifier = Modifier().fillMaxSize(),
+                            modifier = Modifier.fillMaxSize(),
                             verticalAlignment = VerticalAlignment.Center,
                             horizontalAlignment = HorizontalAlignment.Center
                         ) {
@@ -153,9 +153,9 @@ fun Application.module() {
                                 fontSize = 75.px,
                                 fontWeight = FontWeight.Predefined.Bold
                             )
-                            Spacer(modifier = Modifier().height(50.px).fillMaxWidth())
+                            Spacer(modifier = Modifier.height(50.px).fillMaxWidth())
                             Text(
-                                modifier = Modifier().cursor(Cursor.Pointer).display(Display.InlineBlock),
+                                modifier = Modifier.cursor(Cursor.Pointer).display(Display.InlineBlock),
                                 text = "go to home",
                                 fontFamily = "KingDisease404",
                                 fontSize = 28.px,

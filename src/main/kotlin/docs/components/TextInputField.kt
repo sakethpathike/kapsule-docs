@@ -33,16 +33,16 @@ fun HTML.TextInputField(currentRoute: String) {
                     value = "",
                     fontWeight = 12.px,
                     fontSize = 15.px,
-                    modifier = Modifier().margin(top = 1.rem, bottom = 0.px, start = 0.px, end = 0.px)
+                    modifier = Modifier.margin(top = 1.rem, bottom = 0.px, start = 0.px, end = 0.px)
                         .cursor(Cursor.Pointer).boxSizing(BoxSizing.BorderBox)
                         .border(width = 1, radius = 4, color = "rgba(208, 188, 255, 0.3)")
                         .backgroundColor("#2D2A31").width("100%").padding(0.75.rem)
                         .transition(TransitionBuilder().custom("all 0.3s ease")).color("white"),
                     fontFamily = "Poppins"
                 )
-                Spacer(modifier = Modifier().height(15.px))
+                Spacer(modifier = Modifier.height(15.px))
                 Button(
-                    modifier = Modifier().custom(
+                    modifier = Modifier.custom(
                         ""${'"'}
                         align-self:flex-start;
                     ""${'"'}.trimIndent()
@@ -52,10 +52,10 @@ fun HTML.TextInputField(currentRoute: String) {
                     ""${'"'}.trimIndent()
                     }) {
                     Text(
-                        text = "change text", fontFamily = "Poppins", modifier = Modifier()
+                        text = "change text", fontFamily = "Poppins", modifier = Modifier
                     )
                 }
-                Spacer(modifier = Modifier().height(5.px))
+                Spacer(modifier = Modifier.height(5.px))
                 Text(
                     id = "inputFieldText",
                     text = "",

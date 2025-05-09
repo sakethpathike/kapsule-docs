@@ -11,7 +11,7 @@ fun HTML.Image(currentRoute: String) {
               <li>Controls alignment and scaling via <code>Modifier</code> properties</li>  
               <li>Supports both fixed layouts and responsive image behavior</li>  
         """.trimIndent(), topicSignature = """fun FlowContent.Image(
-    modifier: Modifier = Modifier(),
+    modifier: Modifier = Modifier,
     alt: String? = null,
     src: String,
     id: String? = null,
@@ -31,7 +31,7 @@ fun HTML.Image(currentRoute: String) {
   <li>${Codeblock("onThisElement")}: lets you interact with the element's scope beyond what kapsule directly offers</li>  
 </ul>  """.trimIndent(), exampleCodeForCurrentTopic = """Image(
                     alignment = ObjectPosition.Predefined.Top,
-                    modifier = Modifier().border(radius = 15.px, color = "black", width = 1.5.px)
+                    modifier = Modifier.border(radius = 15.px, color = "black", width = 1.5.px)
                         .width(100.percent)
                         .clip(Shape.RoundedRectangle(15.px)),
                     src = "https://media-rockstargames-com.akamaized.net/mfe6/prod/__common/img/a5f10e6551f8214688a9600f50e5ad65.jpg?im=Resize=1920"

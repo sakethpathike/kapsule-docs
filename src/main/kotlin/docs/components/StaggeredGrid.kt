@@ -10,7 +10,7 @@ fun HTML.StaggeredGrid(currentRoute: String) {
         topicName = "StaggeredGrid",
         topicDesc = "Creates staggered grid layouts using CSS column-based flow.",
         topicSignature = """fun FlowContent.StaggeredGrid(
-    modifier: Modifier = Modifier(),
+    modifier: Modifier = Modifier,
     columnCount: Int,
     columnGap: String = 16.px,
     className: String? = null,
@@ -51,7 +51,7 @@ fun HTML.StaggeredGrid(currentRoute: String) {
                     "https://i.pinimg.com/736x/19/65/c6/1965c6557dea0404b79236bdc58ae3e9.jpg",
                 ).run { this + this + this }.forEach {
                     Image(
-                        modifier = Modifier().width(24.vw).clip(
+                        modifier = Modifier.width(24.vw).clip(
                             Shape.RoundedRectangle(25.px)
                         ).display(Display.InlineBlock).margin(5).custom(
                             ""${'"'}

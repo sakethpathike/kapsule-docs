@@ -16,28 +16,28 @@ fun DIV.BottomPagerControls(
     Row(
         verticalAlignment = VerticalAlignment.SpaceBetween,
         horizontalAlignment = HorizontalAlignment.Center,
-        modifier = Modifier().fillMaxWidth().margin(bottom = 150.px)
+        modifier = Modifier.fillMaxWidth().margin(bottom = 150.px)
     ) {
         if (showPreviousBtn) {
             BottomButton(text = previousBtnTxt, label = "Previous page", onClick = onPreviousBtnClick)
         } else {
-            Spacer(modifier = Modifier().display(Display.InlineBlock))
+            Spacer(modifier = Modifier.display(Display.InlineBlock))
         }
 
         if (showNextBtn) {
             BottomButton(text = nextBtnTxt, onClick = onNextBtnClick, label = "Next page")
         } else {
-            Spacer(modifier = Modifier().display(Display.InlineBlock))
+            Spacer(modifier = Modifier.display(Display.InlineBlock))
         }
     }
 }
 
 private fun DIV.BottomButton(label: String, text: String, onClick: () -> String) {
     Button(
-        modifier = Modifier().cursor(Cursor.Pointer).border(radius = 15, color = Colors.primaryContainerDark)
+        modifier = Modifier.cursor(Cursor.Pointer).border(radius = 15, color = Colors.primaryContainerDark)
             .backgroundColor(Colors.ButtonContentColor).display(Display.InlineBlock), onClick = onClick
     ) {
-        Column(modifier = Modifier().padding(5.px)) {
+        Column(modifier = Modifier.padding(5.px)) {
             Text(
                 text = label,
                 fontFamily = "Inter",

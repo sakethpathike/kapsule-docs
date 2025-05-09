@@ -10,7 +10,7 @@ fun HTML.Row(currentRoute: String) {
         topicName = "Row",
         topicDesc = "<code>Row</code> arranges items <em>horizontally</em>.",
         topicSignature = """fun FlowContent.Row(
-                modifier: Modifier = Modifier(),
+                modifier: Modifier = Modifier,
                 verticalAlignment: VerticalAlignment = VerticalAlignment.None,
                 horizontalAlignment: HorizontalAlignment = HorizontalAlignment.None, className: String? = null, id: String? = null,
                 onThisElement: DIV.() -> Unit = {},
@@ -27,20 +27,20 @@ fun HTML.Row(currentRoute: String) {
         """.trimIndent(),
         exampleCodeForCurrentTopic = """Surface {
             Row(
-                modifier = Modifier().fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = VerticalAlignment.SpaceBetween,
                 horizontalAlignment = HorizontalAlignment.Center
             ) {
                 Text(
                     text = "Text 1",
-                    modifier = Modifier().margin(15.px),
+                    modifier = Modifier.margin(15.px),
                     fontFamily = "Poppins",
                     color = "black",
                     fontWeight = "bold"
                 )
                 Text(
                     text = "Text 2",
-                    modifier = Modifier().margin(15.px),
+                    modifier = Modifier.margin(15.px),
                     fontFamily = "Poppins",
                     color = "black",
                     fontWeight = "bold"

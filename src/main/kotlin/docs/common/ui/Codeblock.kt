@@ -19,7 +19,7 @@ fun Codeblock(code: String): String {
 @OptIn(ExperimentalUuidApi::class)
 fun DIV.CustomCodeBlock(code: String, codeBlockId: String = Uuid.random().toString()) {
     Column(
-        modifier = Modifier().padding(1.em).borderRadius(10.px)
+        modifier = Modifier.padding(1.em).borderRadius(10.px)
             .backgroundColor(Colors.surfaceContainerHighDarkHighContrast)
     ) {
         Text(
@@ -28,7 +28,7 @@ fun DIV.CustomCodeBlock(code: String, codeBlockId: String = Uuid.random().toStri
             color = Colors.onSurfaceDark,
             fontSize = 18.px,
             fontFamily = "JetBrains Mono",
-            modifier = Modifier().custom(
+            modifier = Modifier.custom(
                 """
                     overflow-x: auto;
                     overflow-y: hidden; 
@@ -37,12 +37,12 @@ fun DIV.CustomCodeBlock(code: String, codeBlockId: String = Uuid.random().toStri
             )
         )
         Spacer(
-            modifier = Modifier().fillMaxWidth().margin(top = 15.px, bottom = 15.px).height(2.px)
+            modifier = Modifier.fillMaxWidth().margin(top = 15.px, bottom = 15.px).height(2.px)
                 .backgroundColor(Colors.outlineDark).opacity(0.5)
                 .clip(shape = Shape.RoundedRectangle(cornerRadius = 10.px))
         )
         MaterialIcon(
-            iconCode = "content_copy", modifier = Modifier().custom(
+            iconCode = "content_copy", modifier = Modifier.custom(
                 """
                                 font-size: 20px
                             """.trimIndent()

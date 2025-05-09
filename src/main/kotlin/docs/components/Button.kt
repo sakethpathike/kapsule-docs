@@ -31,9 +31,9 @@ fun HTML.Button(currentRoute: String) {
                 Text(
                     text = "Text 1", fontFamily = "Poppins", color = "black", fontWeight = "bold", id = "text1"
                 )
-                Spacer(modifier = Modifier().height(15.px))
+                Spacer(modifier = Modifier.height(15.px))
                 Button(
-                    modifier = Modifier().custom(
+                    modifier = Modifier.custom(
                         ""${'"'}
                         align-self:flex-start;
                     ""${'"'}.trimIndent()
@@ -43,7 +43,7 @@ fun HTML.Button(currentRoute: String) {
                     ""${'"'}.trimIndent()
                     }) {
                     Text(
-                        text = "Change text", fontFamily = "Poppins", modifier = Modifier()
+                        text = "Change text", fontFamily = "Poppins", modifier = Modifier
                     )
                 }
             }

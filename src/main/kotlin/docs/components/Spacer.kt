@@ -13,7 +13,7 @@ fun HTML.Spacer(currentRoute: String) {
     className: String? = null,
     id: String? = null,
     onThisElement: DIV.() -> Unit = {},
-    modifier: Modifier = Modifier()
+    modifier: Modifier = Modifier
 )""".trimIndent(),
         paramsExplanation = """<ul class><li>${Codeblock("className")}: CSS class for spacer <code>div</code></li>  
   <li>${Codeblock("id")}: Unique identifier for spacer <code>div</code></li>  
@@ -28,7 +28,7 @@ fun HTML.Spacer(currentRoute: String) {
                     color = "black",
                     fontWeight = "bold"
                 )
-                Spacer(modifier = Modifier().width(15.px))
+                Spacer(modifier = Modifier.width(15.px))
                 Text(
                     text = "Text 2",
                     fontFamily = "Poppins",

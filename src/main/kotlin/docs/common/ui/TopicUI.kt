@@ -26,7 +26,7 @@ fun HTML.TopicUI(
 ) {
     CommonScaffold(currentRoute = currentRoute) {
         Column(
-            modifier = Modifier().fillMaxSize().padding(25.px).custom(
+            modifier = Modifier.fillMaxSize().padding(25.px).custom(
                 """
                   flex: 1;
                   overflow-y: auto;
@@ -40,22 +40,22 @@ fun HTML.TopicUI(
                 fontFamily = "Inter",
                 fontSize = 25.px
             )
-            Box(modifier = Modifier()) {
-                Spacer(modifier = Modifier().height(10.px))
+            Box(modifier = Modifier) {
+                Spacer(modifier = Modifier.height(10.px))
             }
             Text(
                 text = topicDesc, color = Colors.OnBackground, fontSize = 18.px, fontFamily = "Inter"
             )
             Text(text = "\nFunction Signature:", color = Colors.onSurfaceDark, fontSize = 18.px, fontFamily = "Inter")
-            Box(modifier = Modifier()) {
+            Box(modifier = Modifier) {
                 Spacer(
-                    modifier = Modifier().height(15.px)
+                    modifier = Modifier.height(15.px)
                 )
             }
             CustomCodeBlock(code = topicSignature)
-            Box(modifier = Modifier()) {
+            Box(modifier = Modifier) {
                 Spacer(
-                    modifier = Modifier().height(15.px)
+                    modifier = Modifier.height(15.px)
                 )
             }
             Text(
@@ -78,16 +78,16 @@ fun HTML.TopicUI(
                     fontFamily = "Inter",
                     fontWeight = FontWeight.Predefined.Bold
                 )
-                Box(modifier = Modifier()) {
+                Box(modifier = Modifier) {
                     Spacer(
-                        modifier = Modifier().height(15.px)
+                        modifier = Modifier.height(15.px)
                     )
                 }
                 CustomCodeBlock(code = exampleCodeForCurrentTopic)
                 if (topicName !in listOf("Surface", "Box")) {
-                    Box(modifier = Modifier()) {
+                    Box(modifier = Modifier) {
                         Spacer(
-                            modifier = Modifier().height(15.px)
+                            modifier = Modifier.height(15.px)
                         )
                     }
                     Text(
@@ -96,18 +96,18 @@ fun HTML.TopicUI(
                         fontSize = 18.px,
                         fontFamily = "Inter",
                     )
-                    Box(modifier = Modifier()) {
-                        Spacer(modifier = Modifier().height(10.px))
+                    Box(modifier = Modifier) {
+                        Spacer(modifier = Modifier.height(10.px))
                     }
                     iframe(sandbox = IframeSandbox.allowScripts) {
-                        this.style = Modifier().border(radius = 10.px, color = Colors.surfaceDark, width = 4.px)
-                            .backgroundColor("white").buildStyle()
+                        this.style = Modifier.border(radius = 10.px, color = Colors.surfaceDark, width = 4.px)
+                            .backgroundColor("white").toString()
                         this.src = "/static/examples/${topicName}.html"
                     }
                 }
             }
-            Box(modifier = Modifier()) {
-                Spacer(modifier = Modifier().height(25.px))
+            Box(modifier = Modifier) {
+                Spacer(modifier = Modifier.height(25.px))
             }
             BottomPagerControls(
                 showPreviousBtn = showPreviousBtn,

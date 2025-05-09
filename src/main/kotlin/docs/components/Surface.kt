@@ -15,7 +15,7 @@ fun HTML.Surface(currentRoute: String) {
           """.trimIndent(),
         topicSignature = """
             fun HTML.Surface(
-                modifier: Modifier = Modifier(),
+                modifier: Modifier = Modifier,
                 fonts: List<String> = emptyList(),
                 style: STYLE.() -> Unit = {},
                 className: String? = null,
@@ -40,19 +40,19 @@ fun HTML.Surface(currentRoute: String) {
         Surface(
             fonts = listOf(
                 "https://fonts.googleapis.com/css2?family=family=Inter&family=JetBrains+Mono&display=swap"
-            ), modifier = Modifier().padding(0.px).margin(0).backgroundColor("#292929").custom(
+            ), modifier = Modifier.padding(0.px).margin(0).backgroundColor("#292929").custom(
                 ""${'"'} overflow : hidden
         ""${'"'}.trimIndent()
             )
         ) {
             Column(
-                modifier = Modifier().custom(
+                modifier = Modifier.custom(
                     ""${'"'} top :0
         ""${'"'}.trimIndent()
                 ).position(Position.Sticky).zIndex(1000)
             ) {
                 Row(
-                    modifier = Modifier().fillMaxWidth().height(65.px).backgroundColor("#1b1b1b"),
+                    modifier = Modifier.fillMaxWidth().height(65.px).backgroundColor("#1b1b1b"),
                     verticalAlignment = VerticalAlignment.SpaceBetween,
                     horizontalAlignment = HorizontalAlignment.Center
                 ) {

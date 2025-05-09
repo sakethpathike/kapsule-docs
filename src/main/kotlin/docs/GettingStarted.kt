@@ -15,7 +15,7 @@ import java.net.http.HttpResponse
 fun HTML.GettingStarted(currentRoute: String) {
     CommonScaffold(currentRoute = currentRoute) {
         Column(
-            modifier = Modifier().padding(25.px).custom(
+            modifier = Modifier.padding(25.px).custom(
                 """
                   flex: 1;
                   overflow-y: auto;
@@ -31,10 +31,10 @@ Well, that wasn’t quite the case when handling HTML sent from the server for s
 <strong>ANDDDD... <a style = "color: ${Colors.primaryDark};" href="https://github.com/sakethpathike">I</a> have a plan.</strong>
         """.trimIndent(), color = Colors.onSurfaceDark, fontSize = 18.px, fontFamily = "Inter"
             )
-            Box(Modifier().margin(top = 10.px, bottom = 10.px)) {
+            Box(Modifier.margin(top = 10.px, bottom = 10.px)) {
                 Image(
                     alignment = ObjectPosition.Predefined.Top,
-                    modifier = Modifier().border(radius = 15.px, color = Colors.primaryDark, width = 1.5.px)
+                    modifier = Modifier.border(radius = 15.px, color = Colors.primaryDark, width = 1.5.px)
                         .width(100.percent)
                         .clip(Shape.RoundedRectangle(15.px)),
                     src = "/static/images/I_HAD_A_GODDAMNN_PLAN.jpg",
@@ -48,9 +48,9 @@ Well, that wasn’t quite the case when handling HTML sent from the server for s
                 fontFamily = "Inter"
             )
 
-            Box(Modifier().fillMaxWidth().padding(top = 10.px, bottom = 10.px)) {
+            Box(Modifier.fillMaxWidth().padding(top = 10.px, bottom = 10.px)) {
                 Spacer(
-                    modifier = Modifier().height(2.5.px).opacity(0.25).fillMaxWidth()
+                    modifier = Modifier.height(2.5.px).opacity(0.25).fillMaxWidth()
                         .backgroundColor(Colors.onSurfaceDark)
                         .clip(Shape.RoundedRectangle(cornerRadius = 5.px))
                 )
@@ -67,7 +67,7 @@ Well, that wasn’t quite the case when handling HTML sent from the server for s
                 fontSize = 24.px,
                 fontFamily = "Inter",
                 fontWeight = FontWeight.Predefined.Bold,
-                modifier = Modifier().margin(top = 10.px, bottom = 10.px)
+                modifier = Modifier.margin(top = 10.px, bottom = 10.px)
             )
             listOf(
                 "Server-side rendering static HTML",
@@ -85,7 +85,7 @@ Well, that wasn’t quite the case when handling HTML sent from the server for s
                 text = "Not a fullstack framework", color = Colors.primaryDark,
                 fontSize = 24.px,
                 fontFamily = "Inter", fontWeight = FontWeight.Predefined.Bold,
-                modifier = Modifier().margin(top = 15.px, bottom = 10.px)
+                modifier = Modifier.margin(top = 15.px, bottom = 10.px)
             )
             Text(
                 text = "<strong>kapsule's</strong> motto isn't to be <em>\"yet another fullstack solution\"</em> or overengineer beyond its core goal — it strictly focuses on <strong>HTML/CSS generation</strong> with a <strong>Compose-like feel</strong>. If you need more than this, you're probably looking for <strong>Kobweb</strong>/<strong>Kweb</strong> instead.",
@@ -98,7 +98,7 @@ Well, that wasn’t quite the case when handling HTML sent from the server for s
                 fontSize = 24.px,
                 fontFamily = "Inter",
                 fontWeight = FontWeight.Predefined.Bold,
-                modifier = Modifier().margin(top = 15.px, bottom = 10.px)
+                modifier = Modifier.margin(top = 15.px, bottom = 10.px)
             )
             Text(
                 text = "<strong>kapsule</strong> only uses <strong>Compose-style</strong>, not <strong>Compose-behavior</strong>. The behaviour still depends on <strong>HTML/CSS</strong> (and <strong>JS</strong> if you add raw scripts). You should look up <em>MDN docs</em> or <em>Stack Overflow</em> when something doesn't behave like <strong>Jetpack Compose</strong> — that's the <em>web dev experience</em>.",
@@ -110,7 +110,7 @@ Well, that wasn’t quite the case when handling HTML sent from the server for s
                 text = "Adding dependency", color = Colors.primaryDark,
                 fontSize = 24.px,
                 fontFamily = "Inter", fontWeight = FontWeight.Predefined.Bold,
-                modifier = Modifier().margin(top = 15.px, bottom = 10.px)
+                modifier = Modifier.margin(top = 15.px, bottom = 10.px)
             )
             Text(
                 text = """<strong>kapsule</strong> is available on <strong>Maven Central</strong>.<br>
@@ -119,9 +119,9 @@ Add the following to your <code>build.gradle.kts</code> <strong>dependencies</st
                 fontSize = 18.px,
                 fontFamily = "Inter"
             )
-            Box(modifier = Modifier()) {
+            Box(modifier = Modifier) {
                 Spacer(
-                    modifier = Modifier().height(15.px)
+                    modifier = Modifier.height(15.px)
                 )
             }
             val latestkapsuleVersion = HttpClient.newHttpClient().send(
@@ -133,14 +133,14 @@ Add the following to your <code>build.gradle.kts</code> <strong>dependencies</st
             }.substringAfter("<latest>").substringBefore("</latest>")
 
             Column(
-                modifier = Modifier().padding(1.em)
+                modifier = Modifier.padding(1.em)
                     .backgroundColor(Colors.surfaceContainerHighDarkHighContrast)
                     .borderRadius(10.px)
             ) {
                 val kapsuleDependency = "io.github.sakethpathike:kapsule:${latestkapsuleVersion.trim()}"
                 Text(
                     id = "dependency",
-                    modifier = Modifier().custom(
+                    modifier = Modifier.custom(
                         """
                     overflow-x: auto;
                     overflow-y: hidden; 
@@ -151,16 +151,16 @@ Add the following to your <code>build.gradle.kts</code> <strong>dependencies</st
                     """.trimIndent(), color = Colors.onSurfaceDark, fontSize = 18.px, fontFamily = "Jetbrains Mono"
                 )
                 Spacer(
-                    modifier = Modifier().fillMaxWidth().margin(top = 15.px, bottom = 15.px).height(2.px)
+                    modifier = Modifier.fillMaxWidth().margin(top = 15.px, bottom = 15.px).height(2.px)
                         .backgroundColor(Colors.outlineDark).opacity(0.5).clip(shape = Shape.RoundedRectangle(cornerRadius = 10.px))
                 )
                 span(classes = "material-icons"){
                     id = "componentsExpandEmoji"
-                    style = Modifier().custom(
+                    style = Modifier.custom(
                         """
                                 font-size: 20px
                             """.trimIndent()
-                    ).cursor(Cursor.Pointer).color(Colors.onSurfaceDark).buildStyle()
+                    ).cursor(Cursor.Pointer).color(Colors.onSurfaceDark).toString()
 
                     onClick = """
   const div = document.getElementById('dependency');
@@ -190,8 +190,8 @@ Add the following to your <code>build.gradle.kts</code> <strong>dependencies</st
                     +"content_copy"
                 }
             }
-            Box(modifier = Modifier()) {
-                Spacer(modifier = Modifier().height(25.px))
+            Box(modifier = Modifier) {
+                Spacer(modifier = Modifier.height(25.px))
             }
             BottomPagerControls(
                 showPreviousBtn = false,

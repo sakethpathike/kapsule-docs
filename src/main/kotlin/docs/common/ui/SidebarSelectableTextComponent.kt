@@ -6,17 +6,24 @@ import sakethh.kapsule.Modifier
 import sakethh.kapsule.Row
 import sakethh.kapsule.Spacer
 import sakethh.kapsule.Text
+import sakethh.kapsule.backgroundColor
+import sakethh.kapsule.clip
+import sakethh.kapsule.cursor
+import sakethh.kapsule.custom
+import sakethh.kapsule.height
+import sakethh.kapsule.margin
 import sakethh.kapsule.utils.Cursor
 import sakethh.kapsule.utils.FontWeight
 import sakethh.kapsule.utils.HorizontalAlignment
 import sakethh.kapsule.utils.Shape
 import sakethh.kapsule.utils.px
+import sakethh.kapsule.width
 
 fun DIV.SidebarSelectableTextComponent(selected: Boolean, text: String, onThisElement: DIV.() -> Unit = {}) {
     Row(
         horizontalAlignment = HorizontalAlignment.Center,
-        modifier = Modifier().cursor(Cursor.Pointer)
-            .then(if (selected) Modifier().backgroundColor(Colors.NavbarUnSelectedContainerColor) else Modifier())
+        modifier = Modifier.cursor(Cursor.Pointer)
+            .then(if (selected) Modifier.backgroundColor(Colors.NavbarUnSelectedContainerColor) else Modifier)
             .clip(Shape.RoundedRectangle(right = 15f, cornerRadius = 10.px)).custom(
                 """
                 user-select: none;
@@ -27,7 +34,7 @@ fun DIV.SidebarSelectableTextComponent(selected: Boolean, text: String, onThisEl
         }) {
         if (selected) {
             Spacer(
-                modifier = Modifier().margin(end = 15.px).height(25.px).width(4.px)
+                modifier = Modifier.margin(end = 15.px).height(25.px).width(4.px)
                     .backgroundColor(Colors.NavbarUnSelectedTextColor)
             )
         } else {
@@ -37,11 +44,11 @@ fun DIV.SidebarSelectableTextComponent(selected: Boolean, text: String, onThisEl
                 fontWeight = FontWeight.Custom("regular"),
                 fontFamily = "Inter",
                 color = Colors.NavbarSelectedTextColor,
-                modifier = Modifier().margin(end = 5.px),
+                modifier = Modifier.margin(end = 5.px),
             )
         }
         Text(
-            modifier = Modifier().margin(end = 15.px),
+            modifier = Modifier.margin(end = 15.px),
             text = text,
             fontSize = 16.px,
             fontWeight = if (selected) FontWeight.Predefined.Bold else FontWeight.Custom("regular"),

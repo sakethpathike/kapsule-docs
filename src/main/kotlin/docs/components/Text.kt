@@ -17,7 +17,7 @@ fun HTML.Text(currentRoute: String) {
     id: String? = null,
     textAlign: TextAlign = TextAlign.Start,
     onThisElement: DIV.() -> Unit = {},
-    modifier: Modifier = Modifier()
+    modifier: Modifier = Modifier
 )""".trimIndent(),
         paramsExplanation = """<ul><li>${Codeblock("text")}: Content string rendered inside a <code>&lt;div&gt;</code></li>  
   <li>${Codeblock("fontSize")}: Text size (default: "12px"). Accepts CSS units like "em" or "rem"</li>  
@@ -34,7 +34,7 @@ fun HTML.Text(currentRoute: String) {
         exampleCodeForCurrentTopic = """Surface {
             Text(
                 text = "Text 1",
-                modifier = Modifier().margin(15.px),
+                modifier = Modifier.margin(15.px),
                 fontFamily = "Poppins",
                 color = "black",
                 fontWeight = "bold"

@@ -11,7 +11,7 @@ fun HTML.Column(currentRoute: String) {
             The <code>Column</code> arranges items vertically in a layout.
         """.trimIndent(),
         topicSignature = """fun FlowContent.Column(
-                        modifier: Modifier = Modifier(),
+                        modifier: Modifier = Modifier,
                         verticalAlignment: VerticalAlignment = VerticalAlignment.None,
                         horizontalAlignment: HorizontalAlignment = HorizontalAlignment.None, className: String? = null, id: String? = null,
                         onThisElement: DIV.() -> Unit = {},
@@ -28,20 +28,20 @@ fun HTML.Column(currentRoute: String) {
                 """.trimIndent(),
         exampleCodeForCurrentTopic = """Surface {
             Column(
-                modifier = Modifier().fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = VerticalAlignment.Center,
                 horizontalAlignment = HorizontalAlignment.Center
             ) {
                 Text(
                     text = "Text 1",
-                    modifier = Modifier().margin(15.px),
+                    modifier = Modifier.margin(15.px),
                     fontFamily = "Poppins",
                     color = "black",
                     fontWeight = "bold"
                 )
                 Text(
                     text = "Text 2",
-                    modifier = Modifier().margin(15.px),
+                    modifier = Modifier.margin(15.px),
                     fontFamily = "Poppins",
                     color = "black",
                     fontWeight = "bold"

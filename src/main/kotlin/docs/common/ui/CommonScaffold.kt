@@ -24,7 +24,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
         "Image",
         "StaggeredGrid"
     )
-    val userSelectMod = Modifier().custom(
+    val userSelectMod = Modifier.custom(
         """
           user-select: none;
         """.trimIndent()
@@ -43,7 +43,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
         fonts = listOf(
                 "https://fonts.googleapis.com/icon?family=Material+Icons",
             "https://fonts.googleapis.com/css2?family=Inter&family=JetBrains+Mono&family=Megrim&display=swap"
-        ), modifier = Modifier().padding(0.px).margin(0).backgroundColor(Colors.Background).custom(
+        ), modifier = Modifier.padding(0.px).margin(0).backgroundColor(Colors.Background).custom(
             """
             overflow: hidden;
         """.trimIndent()
@@ -81,14 +81,14 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
         }
     ) {
         Column(
-            modifier = Modifier().custom(
+            modifier = Modifier.custom(
                 """
                 top:0;
             """.trimIndent()
             ).position(Position.Sticky).zIndex(1000)
         ) {
             Row(
-                modifier = Modifier().fillMaxWidth().height(65.px)
+                modifier = Modifier.fillMaxWidth().height(65.px)
                     .backgroundColor(Colors.TopAppBarScrolledContainerColor),
                 verticalAlignment = VerticalAlignment.SpaceBetween,
                 horizontalAlignment = HorizontalAlignment.Center
@@ -96,11 +96,11 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                 Row(horizontalAlignment = HorizontalAlignment.Center) {
                     span(classes = "material-icons") {
                         id = "kapsuleExpandEmoji"
-                        style = Modifier().custom(
+                        style = Modifier.custom(
                             """
                             font-size: 45px;
                         """.trimIndent()
-                        ).color(Colors.TopAppBarTitleContentColor).cursor(Cursor.Pointer).buildStyle()
+                        ).color(Colors.TopAppBarTitleContentColor).cursor(Cursor.Pointer).toString()
                         onClick = """
                             const components = document.getElementById("topics-panel");
                                 const kapsuleExpandEmoji = document.getElementById("kapsuleExpandEmoji");
@@ -143,33 +143,33 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                 }
                 Row(
                     horizontalAlignment = HorizontalAlignment.Center,
-                    modifier = Modifier().cursor(Cursor.Pointer).margin(end = 15.px).height(35.px),
+                    modifier = Modifier.cursor(Cursor.Pointer).margin(end = 15.px).height(35.px),
                     onThisElement = {
                         onClick = """
                         window.open("https://github.com/sakethpathike/kapsule", "_blank");
                     """.trimIndent()
                     }) {
                     span(classes = "material-icons") {
-                        style = Modifier().custom(
+                        style = Modifier.custom(
                             """
                                 font-size: 20px
                             """.trimIndent()
-                        ).color(Colors.TopAppBarTitleContentColor).buildStyle()
+                        ).color(Colors.TopAppBarTitleContentColor).toString()
                         +"star"
                     }
-                    Spacer(modifier = Modifier().width(5.px))
+                    Spacer(modifier = Modifier.width(5.px))
                     Text(
                         text = " on Github", fontFamily = "Inter", fontWeight = FontWeight.Predefined.Bold, color = Colors.TopAppBarTitleContentColor,
                         fontSize = 14.px,
                     )
-                    Spacer(modifier = Modifier().width(5.px))
+                    Spacer(modifier = Modifier.width(5.px))
                 }
             }
-            Spacer(modifier = Modifier().fillMaxWidth().height(1.25.px).backgroundColor("#ffffff"))
+            Spacer(modifier = Modifier.fillMaxWidth().height(1.25.px).backgroundColor("#ffffff"))
         }
-        Row(modifier = Modifier().fillMaxSize()) {
+        Row(modifier = Modifier.fillMaxSize()) {
             Column(
-                id = "topics-panel", modifier = Modifier().fillMaxHeight().custom(
+                id = "topics-panel", modifier = Modifier.fillMaxHeight().custom(
                     """
                           overflow-y: auto;
                     """.trimIndent()
@@ -183,10 +183,10 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                                     window.open("/", "_self");
                                   """.trimIndent()
                     })
-                    Spacer(modifier = Modifier().height(if (it) 18.px else 15.px))
+                    Spacer(modifier = Modifier.height(if (it) 18.px else 15.px))
                 }
                 Row(
-                    modifier = Modifier().cursor(Cursor.Pointer).then(userSelectMod),
+                    modifier = Modifier.cursor(Cursor.Pointer).then(userSelectMod),
                     horizontalAlignment = HorizontalAlignment.Center,
                     onThisElement = {
                         onClick = """
@@ -203,14 +203,14 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                     }) {
                     span(classes = "material-icons"){
                         id = "componentsExpandEmoji"
-                        style = Modifier().custom(
+                        style = Modifier.custom(
                             """
                                 font-size: 20px
                             """.trimIndent()
-                        ).color(Colors.TopAppBarTitleContentColor).buildStyle()
+                        ).color(Colors.TopAppBarTitleContentColor).toString()
                         +"keyboard_arrow_up"
                     }
-                    Spacer(modifier = Modifier().width(10.px))
+                    Spacer(modifier = Modifier.width(10.px))
                     Text(
                         text = "Components",
                         fontSize = 20.px,
@@ -218,7 +218,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                         fontFamily = "Inter", color = Colors.NavbarSelectedTextColor
                     )
                 }
-                Spacer(modifier = Modifier().height(10.px))
+                Spacer(modifier = Modifier.height(10.px))
                 Column(
                     id = "components"
                 ) {
@@ -229,7 +229,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                         window.open("/components/${component}", "_self");
                     """.trimIndent()
                             })
-                            Spacer(modifier = Modifier().height(if (it) 18.px else 15.px))
+                            Spacer(modifier = Modifier.height(if (it) 18.px else 15.px))
                         }
                     }
                 }

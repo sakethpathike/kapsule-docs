@@ -30,5 +30,5 @@ dependencies {
     implementation("io.ktor:ktor-server-core")
     implementation("io.ktor:ktor-server-netty")
     implementation("ch.qos.logback:logback-classic:$logback_version")
-    implementation("io.github.sakethpathike:kapsule:0.0.6")
+    implementation("io.github.sakethpathike:kapsule:0.1.2")
 }

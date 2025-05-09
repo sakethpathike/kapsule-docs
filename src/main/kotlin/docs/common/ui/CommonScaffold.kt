@@ -121,7 +121,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                 }
                 Button(
                     modifier = Modifier.padding(5.px).backgroundColor(Colors.ButtonContainerColor).cursor(Cursor.Pointer)
-                        .margin(end = 15.px).height(35.px).borderRadius(15.px), onClick = {
+                        .margin(end = 10.px).height(35.px).borderRadius(15.px), onClick = {
                         """
                         window.open("https://github.com/sakethpathike/kapsule", "_blank");
                 """.trimIndent()

@@ -37,7 +37,8 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
             }
         },
         fonts = listOf(
-                "https://fonts.googleapis.com/icon?family=Material+Icons",
+            "https://fonts.googleapis.com/icon?family=Material+Icons",
+            "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded",
             "https://fonts.googleapis.com/css2?family=Inter&family=JetBrains+Mono&family=Megrim&display=swap"
         ), modifier = Modifier.padding(0.px).margin(0).backgroundColor(Colors.Background).custom(
             """
@@ -89,7 +90,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                 horizontalAlignment = HorizontalAlignment.Center
             ) {
                 Row(horizontalAlignment = HorizontalAlignment.Center) {
-                    span(classes = "material-icons") {
+                    span(classes = "material-symbols-rounded") {
                         id = "kapsuleExpandEmoji"
                         style = Modifier.custom(
                             """
@@ -126,7 +127,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                         window.open("https://github.com/sakethpathike/kapsule", "_blank");
                     """.trimIndent()
                     }) {
-                    span(classes = "material-icons") {
+                    span(classes = "material-symbols-rounded") {
                         style = Modifier.custom(
                             """
                                 font-size: 20px
@@ -146,11 +147,11 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
         }
         Row(modifier = Modifier.fillMaxSize()) {
             Column(
-                id = "topics-panel", modifier = Modifier.fillMaxHeight().custom(
+                id = "topics-panel", modifier = Modifier.custom(
                     """
                           overflow-y: auto;
                     """.trimIndent()
-                ).position(Position.Sticky).zIndex(999).height(100.vh).width(20.vw)
+                ).position(Position.Sticky).zIndex(999).width(20.vw)
                     .backgroundColor(color = Colors.surfaceDark)
                     .padding(value = 15.px)
             ) {
@@ -196,7 +197,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                         fontFamily = "Inter", color = Colors.NavbarSelectedTextColor
                     )
                 }
-                Spacer(modifier = Modifier.height(10.px))
+                Spacer(modifier = Modifier.height(15.px))
                 Column(
                     id = "components"
                 ) {
@@ -211,6 +212,20 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                         }
                     }
                 }
+                Column(
+                    modifier = Modifier.padding(10.px)
+                        .border(width = 2.5.px, radius = 15.px, color = Colors.primaryDark),
+                ) {
+                    MaterialIcon(iconCode = "info", modifier = Modifier.color(Colors.primaryDark))
+                    Spacer(modifier = Modifier.height(5.px))
+                    Text(
+                        color = Colors.onSurfaceDark,
+                        fontFamily = "Inter",
+                        fontSize = 16.px,
+                        text = "<strong> Docs are a work-in-progress.</strong> But if you're familiar with Jetpack Compose, kapsule will feel instantly familiar. I’ve included comments in the code for most modifiers, so your IDE's doc preview should help you out."
+                    )
+                }
+                Spacer(modifier = Modifier.height(150.px))
             }
             content()
         }

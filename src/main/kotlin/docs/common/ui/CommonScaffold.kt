@@ -119,28 +119,28 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                     )
 
                 }
-                Row(
-                    horizontalAlignment = HorizontalAlignment.Center,
-                    modifier = Modifier.cursor(Cursor.Pointer).margin(end = 15.px).height(35.px),
-                    onThisElement = {
-                        onClick = """
+                Button(
+                    modifier = Modifier.padding(5.px).backgroundColor(Colors.ButtonContainerColor).cursor(Cursor.Pointer)
+                        .margin(end = 15.px).height(35.px).borderRadius(15.px), onClick = {
+                        """
                         window.open("https://github.com/sakethpathike/kapsule", "_blank");
-                    """.trimIndent()
+                """.trimIndent()
                     }) {
-                    span(classes = "material-symbols-rounded") {
-                        style = Modifier.custom(
-                            """
-                                font-size: 20px
-                            """.trimIndent()
-                        ).color(Colors.TopAppBarTitleContentColor).toString()
-                        +"star"
+                    Row(
+                        horizontalAlignment = HorizontalAlignment.Center
+                    ) {
+                        Text(
+                            text = "kapsule on",
+                            fontWeight = FontWeight.Predefined.Medium,
+                            fontFamily = "Inter",
+                            color = Colors.ButtonContentColor
+                        )
+                        Spacer(modifier = Modifier.width(5.px))
+                        Image(
+                            src = "/static/images/github.png",
+                            modifier = Modifier.size(18.px).color(Colors.ButtonContentColor)
+                        )
                     }
-                    Spacer(modifier = Modifier.width(5.px))
-                    Text(
-                        text = " on Github", fontFamily = "Inter", fontWeight = FontWeight.Predefined.Bold, color = Colors.TopAppBarTitleContentColor,
-                        fontSize = 14.px,
-                    )
-                    Spacer(modifier = Modifier.width(5.px))
                 }
             }
             Spacer(modifier = Modifier.fillMaxWidth().height(1.px).backgroundColor(Colors.outlineDark))

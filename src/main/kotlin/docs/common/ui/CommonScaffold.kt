@@ -4,10 +4,6 @@ import io.github.sakethpathike.docs.common.Colors
 import kotlinx.html.*
 import sakethh.kapsule.*
 import sakethh.kapsule.utils.*
-import java.net.URI
-import java.net.http.HttpClient
-import java.net.http.HttpRequest
-import java.net.http.HttpResponse
 
 fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
     val components = listOf(
@@ -88,8 +84,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
             ).position(Position.Sticky).zIndex(1000)
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth().height(65.px)
-                    .backgroundColor(Colors.TopAppBarScrolledContainerColor),
+                modifier = Modifier.fillMaxWidth().height(65.px).backgroundColor(Colors.surfaceDark),
                 verticalAlignment = VerticalAlignment.SpaceBetween,
                 horizontalAlignment = HorizontalAlignment.Center
             ) {
@@ -113,32 +108,14 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                                 }""".trimIndent()
                         +"arrow_left"
                     }
-                    Row {
-                        Text(
-                            modifier = userSelectMod,
-                            text = "kapsule",
-                            fontFamily = "Megrim",
-                            color = Colors.TopAppBarTitleContentColor,
-                            fontSize = 25.px,
-                            fontWeight = FontWeight.Predefined.Bold
-                        )
-                        val kapsuleVersion = HttpClient.newHttpClient().send(
-                            HttpRequest.newBuilder().GET()
-                                .uri(URI.create("https://repo1.maven.org/maven2/io/github/sakethpathike/kapsule/maven-metadata.xml"))
-                                .build(), HttpResponse.BodyHandlers.ofString()
-                        ).run {
-                            this.body() ?: "0.0.5"
-                        }.substringAfter("<latest>").substringBefore("</latest>")
-
-                        Text(
-                            modifier = userSelectMod.opacity(0.5),
-                            text = kapsuleVersion,
-                            fontFamily = "Inter",
-                            color = Colors.TopAppBarTitleContentColor,
-                            fontSize = 14.px,
-                            fontWeight = FontWeight.Predefined.Light
-                        )
-                    }
+                    Text(
+                        modifier = userSelectMod,
+                        text = "kapsule",
+                        fontFamily = "Megrim",
+                        color = Colors.TopAppBarTitleContentColor,
+                        fontSize = 25.px,
+                        fontWeight = FontWeight.Predefined.Bold
+                    )
 
                 }
                 Row(
@@ -165,7 +142,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                     Spacer(modifier = Modifier.width(5.px))
                 }
             }
-            Spacer(modifier = Modifier.fillMaxWidth().height(1.25.px).backgroundColor("#ffffff"))
+            Spacer(modifier = Modifier.fillMaxWidth().height(1.px).backgroundColor(Colors.outlineDark))
         }
         Row(modifier = Modifier.fillMaxSize()) {
             Column(
@@ -174,19 +151,21 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                           overflow-y: auto;
                     """.trimIndent()
                 ).position(Position.Sticky).zIndex(999).height(100.vh).width(20.vw)
-                    .backgroundColor(color = Colors.NavigationBarColor)
+                    .backgroundColor(color = Colors.surfaceDark)
                     .padding(value = 15.px)
             ) {
-                (currentRoute == "/").let {
-                    SidebarSelectableTextComponent(selected = it, text = "Getting started", onThisElement = {
+                SidebarSelectableTextComponent(
+                    applyInitialPadding = currentRoute == "/",
+                    selected = (currentRoute == "/"),
+                    text = "Getting started",
+                    onThisElement = {
                         onClick = """
-                                    window.open("/", "_self");
-                                  """.trimIndent()
+                                window.open("/", "_self");
+                              """.trimIndent()
                     })
-                    Spacer(modifier = Modifier.height(if (it) 18.px else 15.px))
-                }
+                Spacer(modifier = Modifier.height(25.px))
                 Row(
-                    modifier = Modifier.cursor(Cursor.Pointer).then(userSelectMod),
+                    modifier = Modifier.then(userSelectMod),
                     horizontalAlignment = HorizontalAlignment.Center,
                     onThisElement = {
                         onClick = """
@@ -201,19 +180,18 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                                 }
                             """.trimIndent()
                     }) {
-                    span(classes = "material-icons"){
-                        id = "componentsExpandEmoji"
-                        style = Modifier.custom(
-                            """
-                                font-size: 20px
-                            """.trimIndent()
-                        ).color(Colors.TopAppBarTitleContentColor).toString()
-                        +"keyboard_arrow_up"
-                    }
-                    Spacer(modifier = Modifier.width(10.px))
+                    /* span(classes = "material-icons"){
+                         id = "componentsExpandEmoji"
+                         style = Modifier.custom(
+                             """
+                                 font-size: 20px
+                             """.trimIndent()
+                         ).color(Colors.TopAppBarTitleContentColor).toString()
+                         +"keyboard_arrow_up"
+                     }
+                     Spacer(modifier = Modifier.width(10.px))*/
                     Text(
-                        text = "Components",
-                        fontSize = 20.px,
+                        text = "Components", fontSize = 16.px,
                         fontWeight = FontWeight.Predefined.Bold,
                         fontFamily = "Inter", color = Colors.NavbarSelectedTextColor
                     )
@@ -229,7 +207,7 @@ fun HTML.CommonScaffold(currentRoute: String, content: DIV.() -> Unit) {
                         window.open("/components/${component}", "_self");
                     """.trimIndent()
                             })
-                            Spacer(modifier = Modifier.height(if (it) 18.px else 15.px))
+                            Spacer(modifier = Modifier.height(15.px))
                         }
                     }
                 }

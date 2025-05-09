@@ -2,29 +2,20 @@ package docs.common.ui
 
 import io.github.sakethpathike.docs.common.Colors
 import kotlinx.html.DIV
-import sakethh.kapsule.Modifier
-import sakethh.kapsule.Row
-import sakethh.kapsule.Spacer
-import sakethh.kapsule.Text
-import sakethh.kapsule.backgroundColor
-import sakethh.kapsule.clip
-import sakethh.kapsule.cursor
-import sakethh.kapsule.custom
-import sakethh.kapsule.height
-import sakethh.kapsule.margin
-import sakethh.kapsule.utils.Cursor
-import sakethh.kapsule.utils.FontWeight
-import sakethh.kapsule.utils.HorizontalAlignment
-import sakethh.kapsule.utils.Shape
-import sakethh.kapsule.utils.px
-import sakethh.kapsule.width
+import sakethh.kapsule.*
+import sakethh.kapsule.utils.*
 
-fun DIV.SidebarSelectableTextComponent(selected: Boolean, text: String, onThisElement: DIV.() -> Unit = {}) {
+fun DIV.SidebarSelectableTextComponent(
+    selected: Boolean,
+    text: String,
+    applyInitialPadding: Boolean = true,
+    onThisElement: DIV.() -> Unit = {}
+) {
     Row(
         horizontalAlignment = HorizontalAlignment.Center,
-        modifier = Modifier.cursor(Cursor.Pointer)
+        modifier = Modifier.cursor(Cursor.Pointer).padding(if (applyInitialPadding) 5.px else 0.px)
             .then(if (selected) Modifier.backgroundColor(Colors.NavbarUnSelectedContainerColor) else Modifier)
-            .clip(Shape.RoundedRectangle(right = 15f, cornerRadius = 10.px)).custom(
+            .clip(Shape.RoundedRectangle(cornerRadius = 5.px)).custom(
                 """
                 user-select: none;
             """.trimIndent()
@@ -34,24 +25,15 @@ fun DIV.SidebarSelectableTextComponent(selected: Boolean, text: String, onThisEl
         }) {
         if (selected) {
             Spacer(
-                modifier = Modifier.margin(end = 15.px).height(25.px).width(4.px)
-                    .backgroundColor(Colors.NavbarUnSelectedTextColor)
-            )
-        } else {
-            Text(
-                text = Typography.bullet.toString(),
-                fontSize = 16.px,
-                fontWeight = FontWeight.Custom("regular"),
-                fontFamily = "Inter",
-                color = Colors.NavbarSelectedTextColor,
-                modifier = Modifier.margin(end = 5.px),
+                modifier = Modifier.margin(end = 5.px).height(25.px).clip(Shape.RoundedRectangle(cornerRadius = 5.px))
+                    .width(5.px).backgroundColor(Colors.primaryDark)
             )
         }
         Text(
             modifier = Modifier.margin(end = 15.px),
             text = text,
             fontSize = 16.px,
-            fontWeight = if (selected) FontWeight.Predefined.Bold else FontWeight.Custom("regular"),
+            fontWeight = if (selected) FontWeight.Predefined.Medium else FontWeight.Predefined.Normal,
             fontFamily = "Inter",
             color = Colors.NavbarSelectedTextColor
         )
